@@ -5,9 +5,11 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [icon()],
-  output: "server",
-  adapter: node({
-    mode: "standalone"
-  })
+    site: "https://cami98735264.github.io/",
+    base: "portfolio-website",
+    integrations: [icon()],
+    output: "server",
+    adapter: node({
+        mode: "standalone"
+    })
 });
