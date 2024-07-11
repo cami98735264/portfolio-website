@@ -1,10 +1,10 @@
-import { k as createComponent, l as renderTemplate, n as addAttribute, p as renderHead, q as renderSlot, o as createAstro, m as maybeRenderHead, t as renderComponent } from './astro/server_CmvhluSl.mjs';
+import { k as createAstro, l as createComponent, m as renderTemplate, o as addAttribute, p as renderHead, q as renderSlot, n as maybeRenderHead, t as renderComponent } from './astro/server_CvSfMpTe.mjs';
 import 'kleur/colors';
 import 'html-escaper';
 import 'clsx';
 /* empty css                         */
 
-const $$Astro$2 = createAstro();
+const $$Astro$2 = createAstro("https://cami98735264.github.io/");
 const $$Layout = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$Layout;
@@ -65,7 +65,7 @@ const languages = {
     }
 };
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://cami98735264.github.io/");
 const $$Navbar = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Navbar;
@@ -75,7 +75,7 @@ const $$Navbar = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<nav class="navbar" data-astro-cid-5blmo7yk> <div class="navbar__container" data-astro-cid-5blmo7yk> <div class="navbar__logo" data-astro-cid-5blmo7yk> <a href="/" data-astro-cid-5blmo7yk>Cristián ~ Full Stack Dev</a> </div> <div class="navbar__items" data-astro-cid-5blmo7yk> ${languages[currentLanguage].navbarItems.map((item) => renderTemplate`<a${addAttribute(item.redirectUrl, "href")} data-astro-cid-5blmo7yk>${item.name}</a>`)} </div> <div class="navbar__language" data-astro-cid-5blmo7yk> <select id="language__select" data-astro-cid-5blmo7yk> ${languages[currentLanguage].languagesList.map((language) => renderTemplate`<option${addAttribute(language.value, "value")}${addAttribute(currentLanguage === language.value, "selected")} data-astro-cid-5blmo7yk>${language.name}</option>`)} </select> </div> </div></nav>  `;
 }, "C:/Users/Administrador_R/Desktop/portfolio/src/components/Navbar.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://cami98735264.github.io/");
 const $$AboutMe = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$AboutMe;
@@ -88,6 +88,6 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
 }, "C:/Users/Administrador_R/Desktop/portfolio/src/pages/index.astro", void 0);
 
 const $$file = "C:/Users/Administrador_R/Desktop/portfolio/src/pages/index.astro";
-const $$url = "";
+const $$url = "/portfolio-website";
 
 export { $$Index as default, $$file as file, $$url as url };

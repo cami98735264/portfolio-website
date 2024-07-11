@@ -1,8 +1,8 @@
 import { isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { A as AstroError, s as InvalidImageService, t as ExpectedImageOptions, u as ExpectedImage, v as ExpectedNotESMImage, w as resolveSrc, x as isRemoteImage, F as FailedToFetchRemoteImageDimensions, y as isESMImportedImage, z as isLocalService, D as DEFAULT_HASH_PROPS, B as ImageMissingAlt, H as isRemoteAllowed } from './astro/assets-service_VGPAAcon.mjs';
+import { A as AstroError, s as InvalidImageService, t as ExpectedImageOptions, u as ExpectedImage, v as ExpectedNotESMImage, w as resolveSrc, x as isRemoteImage, F as FailedToFetchRemoteImageDimensions, y as isESMImportedImage, z as isLocalService, D as DEFAULT_HASH_PROPS, B as ImageMissingAlt, H as isRemoteAllowed } from './astro/assets-service_j0iNCUzV.mjs';
 import { isRemotePath } from '@astrojs/internal-helpers/path';
-import { k as createComponent, l as renderTemplate, m as maybeRenderHead, n as addAttribute, s as spreadAttributes, o as createAstro } from './astro/server_CmvhluSl.mjs';
+import { k as createAstro, l as createComponent, m as renderTemplate, n as maybeRenderHead, o as addAttribute, s as spreadAttributes } from './astro/server_CvSfMpTe.mjs';
 import 'html-escaper';
 import 'clsx';
 import * as mime from 'mrmime';
@@ -815,7 +815,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './astro/assets-service_VGPAAcon.mjs'
+      './astro/assets-service_j0iNCUzV.mjs'
     ).then(n => n.J).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -908,7 +908,7 @@ async function getImage$1(options, imageConfig) {
   };
 }
 
-const $$Astro$1 = createAstro();
+const $$Astro$1 = createAstro("https://cami98735264.github.io/");
 const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$Image;
@@ -930,7 +930,7 @@ const $$Image = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<img${addAttribute(image.src, "src")}${spreadAttributes(additionalAttributes)}${spreadAttributes(image.attributes)}>`;
 }, "C:/Users/Administrador_R/Desktop/portfolio/node_modules/astro/components/Image.astro", void 0);
 
-const $$Astro = createAstro();
+const $$Astro = createAstro("https://cami98735264.github.io/");
 const $$Picture = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Picture;

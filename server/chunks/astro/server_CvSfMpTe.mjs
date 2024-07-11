@@ -1,5 +1,5 @@
 import { bold } from 'kleur/colors';
-import { A as AstroError, E as EndpointDidNotReturnAResponse, I as InvalidComponentArgs, a as AstroGlobUsedOutside, b as AstroGlobNoMatch, M as MissingMediaQueryDirective, N as NoMatchingImport, O as OnlyResponseCanBeReturned, R as ResponseSentError, c as NoMatchingRenderer, d as NoClientOnlyHint, e as NoClientEntrypoint } from './assets-service_VGPAAcon.mjs';
+import { A as AstroError, E as EndpointDidNotReturnAResponse, I as InvalidComponentArgs, a as AstroGlobUsedOutside, b as AstroGlobNoMatch, M as MissingMediaQueryDirective, N as NoMatchingImport, O as OnlyResponseCanBeReturned, R as ResponseSentError, c as NoMatchingRenderer, d as NoClientOnlyHint, e as NoClientEntrypoint } from './assets-service_j0iNCUzV.mjs';
 import { escape } from 'html-escaper';
 import { clsx } from 'clsx';
 import 'cssesc';
@@ -109,7 +109,7 @@ function createAstro(site) {
   return {
     // TODO: this is no longer necessary for `Astro.site`
     // but it somehow allows working around caching issues in content collections for some tests
-    site: void 0,
+    site: new URL(site) ,
     generator: `Astro v${ASTRO_VERSION}`,
     glob: createAstroGlobFn()
   };
@@ -1846,4 +1846,4 @@ function spreadAttributes(values = {}, _name, { class: scopedClassName } = {}) {
   return markHTMLString(output);
 }
 
-export { ASTRO_VERSION as A, DEFAULT_404_COMPONENT as D, ROUTE_TYPE_HEADER as R, REROUTE_DIRECTIVE_HEADER as a, renderJSX as b, chunkToString as c, clientLocalsSymbol as d, clientAddressSymbol as e, renderPage as f, renderEndpoint as g, responseSentSymbol as h, isRenderInstruction as i, REROUTABLE_STATUS_CODES as j, createComponent as k, renderTemplate as l, maybeRenderHead as m, addAttribute as n, createAstro as o, renderHead as p, renderSlot as q, renderSlotToString as r, spreadAttributes as s, renderComponent as t };
+export { ASTRO_VERSION as A, DEFAULT_404_COMPONENT as D, ROUTE_TYPE_HEADER as R, REROUTE_DIRECTIVE_HEADER as a, renderJSX as b, chunkToString as c, clientLocalsSymbol as d, clientAddressSymbol as e, renderPage as f, renderEndpoint as g, responseSentSymbol as h, isRenderInstruction as i, REROUTABLE_STATUS_CODES as j, createAstro as k, createComponent as l, renderTemplate as m, maybeRenderHead as n, addAttribute as o, renderHead as p, renderSlot as q, renderSlotToString as r, spreadAttributes as s, renderComponent as t };

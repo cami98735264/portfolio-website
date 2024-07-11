@@ -1,7 +1,7 @@
 import '@astrojs/internal-helpers/path';
 import 'cookie';
-export { m as manifest } from './chunks/_@astrojs-manifest_CWuGJe2e.mjs';
+export { m as manifest } from './chunks/_@astrojs-manifest_BYptLvhu.mjs';
 import 'kleur/colors';
 import 'html-escaper';
 import 'clsx';
-import './chunks/astro/server_CmvhluSl.mjs';
+import './chunks/astro/server_CvSfMpTe.mjs';
