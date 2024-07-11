@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components'
+import languages from '../data/languages.js';
+console.log(Astro.url.searchParams.get('lang'));
+let currentLanguage = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'es';
+console.log(Astro.url);
+// set onMount event
+
+
+---
+
+<nav class="navbar">
+    <div class="navbar__container">
+        <div class="navbar__logo">
+            <a href="/">Cristián ~ Full Stack Dev</a>
+    </div>
+    <div class="navbar__items">
+        {languages[currentLanguage].navbarItems.map(item => (
+            <a href={item.redirectUrl}>{item.name}</a>
+        ))}
+    </div>
+    <div class="navbar__language">
+        <select id="language__select" >
+            {languages[currentLanguage].languagesList.map(language => (
+            <option value={language.value} selected={currentLanguage === language.value}>{language.name}</option>
+            ))}
+
+        </select>
+    </div>
+</nav>
+
+<style>
+ /* position the navbar at the top of the page */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+    .navbar__container {
+        margin: 20px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 1.1rem;
+    }
+    .navbar__container a {
+        text-decoration: none;
+        color: #bdbdbd;
+    }
+    .navbar__items {
+        display: flex;
+        gap: 20px;
+    }
+    /* add a line below "a" elements on hover with a transition */
+    .navbar__items a {
+        position: relative;
+    }
+    .navbar__items a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #bdbdbd;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s;
+    }
+    .navbar__items a:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+</style>
+
+<script>
+    // add event listener to the select element
+    document.getElementById('language__select').addEventListener('change', (event) => {
+        const newLanguage = event.target.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang', newLanguage);
+        window.location.href = url;
+    });
+</script>

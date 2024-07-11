@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "Portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,6 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.11.5"
+    "@fontsource-variable/jost": "^5.0.19",
+    "@nanostores/persistent": "^0.10.1",
+    "astro": "^4.11.5",
+    "astro-icon": "^1.1.0",
+    "nanostores": "^0.10.3"
+  },
+  "devDependencies": {
+    "@iconify-json/material-symbols-light": "^1.1.23"
   }
 }
