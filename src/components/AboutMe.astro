@@ -1,13 +1,15 @@
 ---
 import languages from "../data/languages.js";
-const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
-
+const currentLanguage =
+    Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
 ---
-
 
 <main class="aboutme__container">
     <div class="profile__icon">
-        <img src="/assets/profile_picture.jpg" alt="Cristian's profile picture" />
+        <img
+            src="/assets/profile_picture.jpg"
+            alt="Cristian's profile picture"
+        />
         <div class="aboutme__social__icons">
             <a href="" class="aboutme__icons">
                 <img src="/assets/github-mark-white.png" alt="Github icon" />
@@ -16,22 +18,29 @@ const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es
                 <img src="/assets/linkedin_icon.webp" alt="Linkedin icon" />
             </a>
             <a href="" class="aboutme__icons">
-                <img src="/assets/whatsapp_icon.png" id="whatsapp_icon" alt="Whatsapp icon" />
+                <img
+                    src="/assets/whatsapp_icon.png"
+                    id="whatsapp_icon"
+                    alt="Whatsapp icon"
+                />
             </a>
             <a href="" class="aboutme__icons">
-                <img src="/assets/gmail_icon.png" id="gmail_icon" alt="Gmail icon" />
+                <img
+                    src="/assets/gmail_icon.png"
+                    id="gmail_icon"
+                    alt="Gmail icon"
+                />
             </a>
         </div>
-    </div>    <div class="aboutme__social">
+    </div>
+    <div class="aboutme__social">
         <p>
             {languages[currentLanguage].aboutMe}
         </p>
     </div>
 </main>
 
-
 <style>
-
     .aboutme__container {
         display: flex;
         align-items: center;
@@ -63,15 +72,13 @@ const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es
         opacity: 1;
     }
 
-    
     .aboutme__social__icons {
-        /* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
         /* align flex to right */
         margin-left: auto;
         display: flex;
@@ -87,19 +94,21 @@ border: 1px solid rgba(255, 255, 255, 0.3);
         height: 300px;
         object-fit: cover;
         border-radius: 50%;
+        filter: brightness(0.9);
     }
     p {
         font-size: 1.1rem;
         text-align: center;
         color: #c3c1c1;
     }
-    @media screen and (max-width: 965px){
+    @media screen and (max-width: 866px) {
         .aboutme__container {
             flex-direction: column;
             justify-content: center;
-            align-items: center;            
+            align-items: center;
         }
-        .aboutme__social, .profile__icon {
+        .aboutme__social,
+        .profile__icon {
             width: 100%;
         }
     }

@@ -1,86 +1,157 @@
 ---
-import { Icon } from 'astro-icon/components'
-import languages from '../data/languages.js';
-console.log(Astro.url.searchParams.get('lang'));
-let currentLanguage = Astro.url.searchParams.get('lang') === 'en' ? 'en' : 'es';
+import { Icon } from "astro-icon/components";
+import languages from "../data/languages.js";
+import ThreeBars from "../icons/ThreeBars.astro";
+console.log(Astro.url.searchParams.get("lang"));
+let currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
 console.log(Astro.url);
 // set onMount event
-
-
 ---
 
 <nav class="navbar">
     <div class="navbar__container">
         <div class="navbar__logo">
-            <a href="/">Cristián ~ Full Stack Dev</a>
+            <a href="/" class="navbar__logo__name">Cristián ~ Full Stack Dev</a>
+            <ThreeBars class="threebars__icon"/>
+        </div>
+        <div class="navbar__items">
+            {
+                languages[currentLanguage].navbarItems.map((item) => (
+                    <a href={item.redirectUrl}>{item.name}</a>
+                ))
+            }
+        </div>
+        <div class="navbar__language">
+            <select id="language__select">
+                {
+                    languages[currentLanguage].languagesList.map((language) => (
+                        <option
+                            value={language.value}
+                            selected={currentLanguage === language.value}
+                        >
+                            {language.name}
+                        </option>
+                    ))
+                }
+            </select>
+        </div>
     </div>
-    <div class="navbar__items">
-        {languages[currentLanguage].navbarItems.map(item => (
-            <a href={item.redirectUrl}>{item.name}</a>
-        ))}
+    <div class="navbar__items__mobile" style="display: none;">
+            {
+                languages[currentLanguage].navbarItems.map((item) => (
+                    <a href={item.redirectUrl}>{item.name}</a>
+                ))
+            }
     </div>
-    <div class="navbar__language">
-        <select id="language__select" >
-            {languages[currentLanguage].languagesList.map(language => (
-            <option value={language.value} selected={currentLanguage === language.value}>{language.name}</option>
-            ))}
 
-        </select>
-    </div>
 </nav>
+    <style>
+        .threebars__icon, .navbar__items__mobile {
+            display: none;
+        }
 
-<style>
- /* position the navbar at the top of the page */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-    }
-    .navbar__container {
-        margin: 20px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        font-size: 1.1rem;
-    }
-    .navbar__container a {
-        text-decoration: none;
-        color: #bdbdbd;
-    }
-    .navbar__items {
-        display: flex;
-        gap: 20px;
-    }
-    /* add a line below "a" elements on hover with a transition */
-    .navbar__items a {
-        position: relative;
-    }
-    .navbar__items a::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #bdbdbd;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.3s;
-    }
-    .navbar__items a:hover::after {
-        transform: scaleX(1);
-        transform-origin: left;
-    }
-</style>
+        /* position the navbar at the top of the page */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar__container {
+            margin: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        .navbar__container a {
+            text-decoration: none;
+            color: #bdbdbd;
+        }
+        .navbar__items {
+            display: flex;
+            gap: 20px;
+        }
+        /* add a line below "a" elements on hover with a transition */
+        .navbar__items a {
+            position: relative;
+        }
+        .navbar__items a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #bdbdbd;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
+        }
+        .navbar__items a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .navbar__items__mobile a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        @media screen and (max-width: 866px) {
+            .threebars__icon {
+                display: block;
+            }
+            .navbar__container {
+                justify-content: space-between;
+            }
+            .navbar__items, .navbar__logo__name {
+                display: none;
+            }
+            .navbar__items__mobile a {
+                padding: 20px;
+                text-decoration: none;
+                color: #bdbdbd;
+                font-size: 1.1rem;
+                background-color: rgb(8, 4, 68);
+                transition: background-color 0.5s;
+            }
+            .navbar__items__mobile {
+                background-color: rgb(8, 4, 68);
+                display: flex;
+                flex-direction: column;
+                /* add a transparent gradient background */
+                width: 100%;
+                
+            }
+            
+            
+        }
+    </style>
 
-<script>
-    // add event listener to the select element
-    document.getElementById('language__select').addEventListener('change', (event) => {
-        const newLanguage = event.target.value;
-        const url = new URL(window.location.href);
-        url.searchParams.set('lang', newLanguage);
-        window.location.href = url;
-    });
-</script>
+    <script>
+        // add event listener to the select element
+        document
+            .getElementById("language__select")
+            .addEventListener("change", (event) => {
+                const newLanguage = event.target.value;
+                const url = new URL(window.location.href);
+                url.searchParams.set("lang", newLanguage);
+                window.location.href = url;
+            });
+
+        // add event listener to the threebars icon
+        document
+            .querySelector(".threebars__icon")
+            .addEventListener("click", () => {
+                // if the navbar items are hidden, show them, otherwise hide them, but there's a bug, first time it's clicked it doesn't work
+                const navbarItemsMobile = document.querySelector(".navbar__items__mobile");
+                if (navbarItemsMobile.style.display === "none") {
+                    navbarItemsMobile.style.display = "flex";
+                    document.querySelector(".navbar").style.backgroundColor = "rgb(8, 4, 68)";
+                } else {
+                    navbarItemsMobile.style.display = "none";
+                    document.querySelector(".navbar").style.backgroundColor = "transparent";
+                }
+
+            });
+
+    </script>
