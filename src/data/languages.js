@@ -22,7 +22,8 @@ const languages = {
         {
             name: "Contacto",
             redirectUrl: "#contacto"
-        }]
+        }],
+        whatsappText: "¡Hola! 👋, ¿Cómo estás? Me gustaría saber más sobre tus servicios.",
     },
     en: {
         aboutMe: "Hello! 👋, My name is Cristián. I'm a Full Stack developer specializing in backend and with extensive knowledge in JavaScript, ReactJS, and ExpressJS. I excel in advanced programming, database management, and user experience design (UI/UX).",
@@ -46,8 +47,9 @@ const languages = {
         {
             name: "Contact",
             redirectUrl: "#contact"
-        }
+        },
     ],
+    whatsappText: "Hello! 👋, How are you? I would like to know more about your services.",
     }
 };
 
