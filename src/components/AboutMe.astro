@@ -1,43 +1,83 @@
 ---
+import { Image } from "astro:assets";
 import languages from "../data/languages.js";
 const currentLanguage =
     Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
 ---
 
-<main class="aboutme__container">
-    <div class="profile__icon">
-        <img
-            src="/assets/profile_picture.jpg"
-            alt="Cristian's profile picture"
-        />
-        <div class="aboutme__social__icons">
-            <a href="https://github.com/cami98735264" target="_blank" class="aboutme__icons">
-                <img src="/assets/github-mark-white.png" alt="Github icon" />
-            </a>
-            <a href="https://www.linkedin.com/in/cristi%C3%A1n-camilo-rodr%C3%ADguez-montealegre-8a8697272/" target="_blank" class="aboutme__icons">
-                <img src="/assets/linkedin_icon.webp" alt="Linkedin icon" />
-            </a>
-            <a href=`https://wa.me/573186562061?text=${languages[currentLanguage].whatsappText}` target="_blank" class="aboutme__icons">
-                <img
-                    src="/assets/whatsapp_icon.png"
-                    id="whatsapp_icon"
-                    alt="Whatsapp icon"
-                />
-            </a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mashlowtm0510@gmail.com&su=Hi! I'd like to talk about your services :)&body=Hey!" target="_blank" class="aboutme__icons">
-                <img
-                    src="/assets/gmail_icon.png"
-                    id="gmail_icon"
-                    alt="Gmail icon"
-                />
-            </a>
+<main>
+    <section class="aboutme__container" id={currentLanguage === "en" ? "about-me" : "sobre-mi"}>
+        <div class="profile__icon">
+            <Image
+                width={300}
+                height={300}
+                loading="eager"
+                src="/assets/profile_picture.jpg"
+                alt="Profile"
+            />
+            <div class="aboutme__social__icons">
+                <a
+                    href="https://github.com/cami98735264"
+                    target="_blank"
+                    class="aboutme__icons"
+                >
+                    <Image
+                        width={30}
+                        height={30}
+                        loading="eager"
+                        src="/assets/github-mark-white.png"
+                        alt="Github icon"
+                    />
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/cristi%C3%A1n-camilo-rodr%C3%ADguez-montealegre-8a8697272/"
+                    target="_blank"
+                    class="aboutme__icons"
+                >
+                    <Image
+                        width={30}
+                        height={30}
+                        loading="eager"
+                        src="/assets/linkedin_icon.webp"
+                        alt="Linkedin icon"
+                    />
+                </a>
+                <a
+                    href=`https://wa.me/573186562061?text=${languages[currentLanguage].whatsappText}`
+                    target="_blank"
+                    class="aboutme__icons"
+                >
+                    <Image
+                        width={30}
+                        height={30}
+                        loading="eager"
+                        src="/assets/whatsapp_icon.png"
+                        id="whatsapp_icon"
+                        alt="Whatsapp icon"
+                    />
+                </a>
+                <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=mashlowtm0510@gmail.com&su=Hi! I'd like to talk about your services :)&body=Hey!"
+                    target="_blank"
+                    class="aboutme__icons"
+                >
+                    <Image
+                        width={30}
+                        height={30}
+                        loading="eager"
+                        src="/assets/gmail_icon.png"
+                        id="gmail_icon"
+                        alt="Gmail icon"
+                    />
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="aboutme__social">
-        <p>
-            {languages[currentLanguage].aboutMe}
-        </p>
-    </div>
+        <div class="aboutme__social">
+            <p>
+                {languages[currentLanguage].aboutMe}
+            </p>
+        </div>
+    </section>
 </main>
 
 <style>

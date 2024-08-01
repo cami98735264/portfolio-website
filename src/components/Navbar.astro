@@ -50,13 +50,14 @@ console.log(Astro.url);
             display: none;
         }
 
-        /* position the navbar at the top of the page */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            background-color: transparent;
             z-index: 1000;
+            transition: background-color 0.5s;
         }
         .navbar__container {
             margin: 20px;
@@ -73,7 +74,7 @@ console.log(Astro.url);
             display: flex;
             gap: 20px;
         }
-        /* add a line below "a" elements on hover with a transition */
+
         .navbar__items a {
             position: relative;
         }
@@ -125,6 +126,8 @@ console.log(Astro.url);
             
             
         }
+
+
     </style>
 
     <script>

@@ -1,0 +1,132 @@
+---
+import { Image } from "astro:assets";
+import languages from "../data/languages.js";
+import ProjectCard from "./ProjectCard.astro";
+const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
+---
+
+<section class="projects__container" id={currentLanguage === "en" ? "projects" : "proyectos"}>
+    <h2 class="projects__title">{languages[currentLanguage].projects.projectsTitle}</h2>
+    <div class="projects__cards">
+        <ProjectCard
+            title="Project 1"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            github_url="https://github.com/project1"
+            live_url="https://project1.com"
+            images={[
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+                {
+                    url: "https://logowik.com/content/uploads/images/nextjs2106.logowik.com.webp",
+                    alt: "Project ",
+                },
+            ]}
+        />
+        <ProjectCard
+            title="Project 2"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            github_url="https://github.com/project1"
+            live_url="https://project1.com"
+            images={[
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+            ]}
+        />
+        <ProjectCard
+            title="Project 3"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            github_url="https://github.com/project1"
+            live_url="https://project1.com"
+            images={[
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+            ]}
+        />
+        <ProjectCard
+            title="Project 4"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            github_url="https://github.com/project1"
+            live_url="https://project1.com"
+            images={[
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+            ]}
+        />
+        <ProjectCard
+            title="Project 5"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            github_url="https://github.com/project1"
+            live_url="https://project1.com"
+            images={[
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+            ]}
+        />
+        <ProjectCard
+            title="Project 6"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+            github_url="https://github.com/project1"
+            live_url="https://project1.com"
+            images={[
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+                {
+                    url: "https://static-00.iconduck.com/assets.00/javascript-icon-512x512-q5abze8k.png",
+                    alt: "Project 1",
+                },
+            ]}
+        />
+    </div>
+</section>
+
+<style>
+    .projects__title {
+        color: #fff;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .projects__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin: 20px;
+        height: 100vh;
+    }
+    .projects__cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        flex: 1 0 21%;
+    }
+
+</style>

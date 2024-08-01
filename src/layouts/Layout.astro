@@ -42,3 +42,16 @@ let language = Astro.url.searchParams.get('lang') || 'es';
 	}
 
 </style>
+
+
+<script>
+	// add an onScroll event listener to change the navbar background color
+	window.addEventListener('scroll', () => {
+		const navbar = document.querySelector('.navbar');
+		if (window.scrollY > 50) {
+			navbar.style.backgroundColor = 'rgba(8, 4, 68, 0.9)';
+		} else {
+			navbar.style.backgroundColor = 'transparent';
+		}
+	});
+</script>
