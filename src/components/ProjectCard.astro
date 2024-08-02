@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import languages from "../data/languages.js";
+import { Icon } from "astro-icon/components";
+import Globe from "../icons/Globe.astro";
 const currentLanguage =
     Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
 const { title, description, github_url, live_url, images, alt } = Astro.props;
@@ -12,8 +14,14 @@ const { title, description, github_url, live_url, images, alt } = Astro.props;
             {
                 images.map((image) => {
                     return (
-                        <a href={image.url} class="swiper-slide" data-pswp-width="1920" data-pswp-height="1080">
-                            <Image loading="eager"
+                        <a
+                            href={image.url}
+                            class="swiper-slide"
+                            data-pswp-width="1920"
+                            data-pswp-height="1080"
+                        >
+                            <Image
+                                loading="eager"
                                 width={300}
                                 height={300}
                                 src={image.url}
@@ -26,74 +34,166 @@ const { title, description, github_url, live_url, images, alt } = Astro.props;
         </div>
         <div class="swiper-pagination"></div>
     </div>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <div class="project__card__links">
-        <a href={github_url} target="_blank"
-            >{languages[currentLanguage].projects.github}</a
-        >
-        <a href={live_url} target="_blank"
-            >{languages[currentLanguage].projects.live}</a
-        >
+    <div class="project__card__body">
+        <div>
+            <div class="project__card__header">
+                <h3 class="project__card__title">{title}</h3>
+                <p class="project__card__subtitle">Proyecto personal</p>
+            </div>
+            <div class="project__card__description">
+                <p>{description}</p>
+                <div class="project__card__links">
+                    <a class="github__icon">
+                        <Icon size={20} name="simple-icons:github" />
+                    </a>
+                    <a class="live__icon">
+                        <Globe size={20} />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="project__card__tecnologies">
+            <Icon size={20} name="simple-icons:javascript" />
+            <Icon size={20} name="simple-icons:react" />
+            <Icon size={20} name="simple-icons:nodedotjs" />
+            <Icon size={20} name="simple-icons:express" />
+        </div>
     </div>
 </div>
-
 <style>
     .project__card {
+        background-color: #000634;
         display: flex;
         flex-direction: column;
         gap: 10px;
-        padding: 10px;
+        padding: 15px;
         width: 350px;
-        border: 1px solid rgb(156, 155, 155);
+        border-radius: 10px;
+        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    }
+    .project__card__body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-grow: 1;
+        height: 350px;
+        justify-content: space-between;
+    }
+
+    /* change scrollbar style */
+    .project__card__description p::-webkit-scrollbar {
+        width: 5px;
+    }
+    .project__card__description p::-webkit-scrollbar-thumb {
+        background-color: #bdbdbd;
         border-radius: 10px;
     }
+    .project__card__description p::-webkit-scrollbar-track {
+        background-color: #000634;
+    }
+    .project__card__description p {
+        color: #bdbdbd;
+        font-size: 0.9rem;
+        line-height: 1.2;
+    }
+    .project__card__title {
+        color: #fff;
+        font-size: 1.7rem;
+        line-height: 1.1;
+    }
+    .project__card__subtitle {
+        color: #999898;
+        font-size: 0.9rem;
+    }
+    [data-icon="simple-icons:vercel"] {
+        color: #000;
+    }
+    .project__card__description p {
+        display: inline-block;
+        max-height: 150px;
+        overflow: auto;
+    }
+    .project__card__description {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .project__card__links {
+        display: flex;
+        gap: 5px;
+    }
+    .project__card__tecnologies {
+        /* align to right */
+        margin-top: 10px;
+        display: flex;
+        gap: 5px;
+        justify-content: flex-end;
+    }
+    .project__card__links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 10px;
+        color: #bdbdbd;
+        cursor: pointer;
+        width: 100%;
+        padding: 13px;
+        transition: background-color 0.5s;
+    }
+    .project__card__links .live__icon:hover {
+        background-color: #2d1d88;
+    }
+    .project__card__links .github__icon:hover {
+        background-color: #000;
+    }
+    .github__icon {
+        background-color: #180000;
+    }
+    .live__icon {
+        background-color: #462dd5;
+    }
     .swiper {
-  width: 100%;
-  height: 300px;
-}   
+        width: 100%;
+        height: 300px;
+    }
+    .github__icon {
+        color: #fff;
+        padding: 20px;
+    }
     .project__card img {
         border-radius: 10px;
         width: 100%;
         height: 300px;
         object-fit: cover;
     }
-    .project__card h3 {
-        color: #fff;
-        font-size: 1.6rem;
-        font-weight: 600;
-    }
-    .project__card__links {
-        display: flex;
-        gap: 10px;
-    }
 </style>
 
 <script>
-    import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-// import Swiper and modules styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import 'photoswipe/style.css';
+    import Swiper from "swiper";
+    import { Navigation, Pagination } from "swiper/modules";
+    // import Swiper and modules styles
+    import "swiper/css";
+    import "swiper/css/navigation";
+    import "swiper/css/pagination";
+    import PhotoSwipeLightbox from "photoswipe/lightbox";
+    import "photoswipe/style.css";
 
-const swiper = new Swiper('.swiper', {
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    loop: true
-});
+    const swiper = new Swiper(".swiper", {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        loop: true,
+    });
 
-const lightbox = new PhotoSwipeLightbox({
-  gallery: '.swiper-wrapper',
-  children: 'a',
-  pswpModule: () => import('photoswipe')
-});
-// dinamically make it so every image of photoswipe has the same width and height
+    const lightbox = new PhotoSwipeLightbox({
+        gallery: ".swiper-wrapper",
+        children: "a",
+        pswpModule: () => import("photoswipe"),
+    });
+    // dinamically make it so every image of photoswipe has the same width and height
 
-lightbox.init();
-
+    lightbox.init();
 </script>
