@@ -20,6 +20,10 @@ const languages = {
             redirectUrl: "#proyectos"
         },
         {
+            name: "Habilidades",
+            redirectUrl: "#habilidades"
+        },
+        {
             name: "Contacto",
             redirectUrl: "#contacto"
         }],
@@ -48,6 +52,10 @@ const languages = {
         {
             name: "Projects",
             redirectUrl: "#projects"
+        },
+        {
+            name: "Skills",
+            redirectUrl: "#skills"
         },
         {
             name: "Contact",

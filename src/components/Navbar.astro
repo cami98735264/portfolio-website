@@ -150,9 +150,14 @@ console.log(Astro.url);
                 if (navbarItemsMobile.style.display === "none") {
                     navbarItemsMobile.style.display = "flex";
                     document.querySelector(".navbar").style.backgroundColor = "rgb(8, 4, 68)";
+                }
+                else if (navbarItemsMobile.style.display === "flex" && window.scrollY > 50) {
+                    navbarItemsMobile.style.display = "none";
+                    document.querySelector(".navbar").style.backgroundColor = "#010123";
                 } else {
                     navbarItemsMobile.style.display = "none";
                     document.querySelector(".navbar").style.backgroundColor = "transparent";
+
                 }
 
             });
