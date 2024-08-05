@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+import SkillBar from "../components/SkillBar.astro";
+import languages from "../data/languages.js";
+
+const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
+---
+
+
+<section class="skills__container" id={currentLanguage === "en" ? "skills" : "habilidades"}>
+    <h2 class="skills__title">{languages[currentLanguage].skills.title}</h2>
+    <div class="skills__bars">
+        <div class="skills__bars__group">
+            <SkillBar title="React" percentage="100" percentage_color="#61dafb" icon_name="react"/>
+            <SkillBar title="NextJS" percentage="80" percentage_color="#f7df1e" icon_name="nextdotjs"/>
+        </div>
+        <div class="skills__bars__group">
+            <SkillBar title="Node.js" percentage="90" percentage_color="#68a063" icon_name="nodedotjs"/>
+            <SkillBar title="Express" percentage="90" percentage_color="#000000" icon_name="express"/>
+        </div>
+        <div class="skills__bars__group">
+            <SkillBar title="MongoDB" percentage="80" percentage_color="#4DB33D" icon_name="mongodb"/>
+            <SkillBar title="PostgreSQL" percentage="80" percentage_color="#336791" icon_name="postgresql"/>
+            <SkillBar title="MySQL" percentage="85" percentage_color="#4479A1" icon_name="mysql"/>
+        </div>
+        <div class="skills__bars__group">
+            <SkillBar title="HTML" percentage="100" percentage_color="#E34F26" icon_name="html5"/>
+            <SkillBar title="CSS" percentage="100" percentage_color="#1572B6" icon_name="css3"/>
+        </div>
+        <div class="skills__bars__group">
+            <SkillBar title="JavaScript" percentage="100" percentage_color="#F7DF1E" icon_name="javascript"/>
+            <SkillBar title="TypeScript" percentage="80" percentage_color="#3178C6" icon_name="typescript"/>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .skills__title {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .skills__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 100px;
+        min-height: 100dvh;
+        padding: 40px;
+    }
+    .skills__bars {
+        padding: 40px;
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .skills__bars__group {
+        background-color: rgba(151, 149, 149, 0.2);
+        border-radius: 16px;
+        padding: 20px;
+        display: flex;
+        gap: 60px;
+        flex-wrap: wrap;
+
+    }
+
+</style>

@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon/components";
+const { title, percentage, percentage_color, icon_name } = Astro.props;
+
+---
+
+<div class="skills__bar">
+    <div class="skills__bar__title"><Icon size={25} name=`simple-icons:${icon_name}`/> {title}</div>
+    <div class="skills__bar__percentage">{percentage}%</div>
+    <div class="skills__bar__progress" style=`width: ${percentage}%; background-color: ${percentage_color};`></div>
+</div>
+
+
+<style>
+    .skills__bar {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex-grow: 1;
+    }
+    .skills__bar__title {
+        color: #fff;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .skills__bar__percentage {
+        color: #bdbdbd;
+        font-size: 1rem;
+    }
+    .skills__bar__progress {
+        height: 10px;
+        background-color: #bdbdbd;
+        border-radius: 5px;
+    }
+</style>

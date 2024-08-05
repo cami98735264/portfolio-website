@@ -32,6 +32,9 @@ const languages = {
             projectsTitle: "Mis Proyectos",
             github: "¡Míralo en github!",
             live: "¡Míralo en vivo!"
+        },
+        skills: {
+            title: "Mis habilidades"
         }
     },
     en: {
@@ -67,8 +70,12 @@ const languages = {
         projectsTitle: "My Projects",
         github: "Check it out on github!",
         live: "Check it out live!"
+    },
+    skills: {
+        title: "My skills"
     }
     }
+    
 };
 
 

@@ -1,14 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import languages from "../data/languages.js";
-import ProjectCard from "./ProjectCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
 ---
 
 <section class="projects__container" id={currentLanguage === "en" ? "projects" : "proyectos"}>
     <h2 class="projects__title">{languages[currentLanguage].projects.projectsTitle}</h2>
-    <div class="projects__cards">
-        <ProjectCard
+    <div class="projects__cards__container">
+        <div class="projects__cards">
+            <ProjectCard
             title="Sistema de sesiones y autenticación fullstack"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
             github_url="https://github.com/project1"
@@ -55,8 +56,10 @@ const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es
                     alt: "Project 1",
                 },
             ]}
-        />
-        <ProjectCard
+        />  
+        </div>
+        <div class="projects__cards">
+            <ProjectCard
             title="Project 4"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
             github_url="https://github.com/project1"
@@ -104,6 +107,7 @@ const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es
                 },
             ]}
         />
+        </div>
     </div>
 </section>
 
@@ -125,7 +129,13 @@ const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        margin: 20px;
         gap: 20px;
     }
-
+    .projects__cards__container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
 </style>
