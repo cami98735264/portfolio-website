@@ -34,4 +34,12 @@ const { title, percentage, percentage_color, icon_name } = Astro.props;
         background-color: #bdbdbd;
         border-radius: 5px;
     }
+    @media (width < 700px) {
+        .skills__bar__title {
+            font-size: 1rem;
+        }
+        .skills__bar__percentage {
+            font-size: 0.9rem;
+        }
+    }
 </style>
