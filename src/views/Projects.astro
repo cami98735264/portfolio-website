@@ -2,116 +2,139 @@
 import { Image } from "astro:assets";
 import languages from "../data/languages.js";
 import ProjectCard from "../components/ProjectCard.astro";
-const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
+const currentLanguage =
+    Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
 ---
 
-<section class="projects__container" id={currentLanguage === "en" ? "projects" : "proyectos"}>
-    <h2 class="projects__title">{languages[currentLanguage].projects.projectsTitle}</h2>
+<section
+    class="projects__container"
+    id={currentLanguage === "en" ? "projects" : "proyectos"}
+>
+    <h2 class="projects__title">
+        {languages[currentLanguage].projects.projectsTitle}
+    </h2>
     <div class="projects__cards__container">
         <div class="projects__cards">
-            <ProjectCard
-            title="Sistema de sesiones y autenticación fullstack"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-            github_url="https://github.com/project1"
-            live_url="https://project1.com"
-            images={[
-                {
-                    url: "/assets/JavaScript-logo.png",
-                    alt: "Project 1",
-                },
-                {
-                    url: "/assets/nextjs.jpeg",
-                    alt: "Project 1",
-                },
-            ]}
-        />
-        <ProjectCard
-            title="Project 2"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-            github_url="https://github.com/project1"
-            live_url="https://project1.com"
-            images={[
-                {
-                    url: "/assets/JavaScript-logo.png",
-                    alt: "Project 1",
-                },
-                {
-                    url: "/assets/nextjs.jpeg",
-                    alt: "Project 1",
-                },
-            ]}
-        />
-        <ProjectCard
-            title="Project 3"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-            github_url="https://github.com/project1"
-            live_url="https://project1.com"
-            images={[
-                {
-                    url: "/assets/JavaScript-logo.png",
-                    alt: "Project 1",
-                },
-                {
-                    url: "/assets/nextjs.jpeg",
-                    alt: "Project 1",
-                },
-            ]}
-        />  
-        </div>
-        <div class="projects__cards">
-            <ProjectCard
-            title="Project 4"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-            github_url="https://github.com/project1"
-            live_url="https://project1.com"
-            images={[
-                {
-                    url: "/assets/JavaScript-logo.png",
-                    alt: "Project 1",
-                },
-                {
-                    url: "/assets/nextjs.jpeg",
-                    alt: "Project 1",
-                },
-            ]}
-        />
-        <ProjectCard
-            title="Project 5"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-            github_url="https://github.com/project1"
-            live_url="https://project1.com"
-            images={[
-                {
-                    url: "/assets/JavaScript-logo.png",
-                    alt: "Project 1",
-                },
-                {
-                    url: "/assets/nextjs.jpeg",
-                    alt: "Project 1",
-                },
-            ]}
-        />
-        <ProjectCard
-            title="Project 6"
-            description="Sistema de sesiones dinámico y autenticación fullstack diseñado en ReactJS y NextJS para el frontend y NodeJS y Express para el backend. El sistema permite a los usuarios registrarse, iniciar sesión y cerrar sesión. Además, los usuarios pueden ver su perfil y editar su información personal."
-            github_url="https://github.com/project1"
-            live_url="https://project1.com"
-            images={[
-                {
-                    url: "/assets/JavaScript-logo.png",
-                    alt: "Project 1",
-                },
-                {
-                    url: "/assets/nextjs.jpeg",
-                    alt: "Project 1",
-                },
-            ]}
-        />
+            <div class="cards__container">
+                <ProjectCard
+                title="Sistema de sesiones y autenticación fullstack"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                github_url="https://github.com/project1"
+                live_url="https://project1.com"
+                images={[
+                    {
+                        url: "/assets/JavaScript-logo.png",
+                        alt: "Project 1",
+                    },
+                    {
+                        url: "/assets/nextjs.jpeg",
+                        alt: "Project 1",
+                    },
+                ]}
+            />
+            </div>
+            <div class="cards__container">
+                <ProjectCard
+                title="Project 2"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                github_url="https://github.com/project1"
+                live_url="https://project1.com"
+                images={[
+                    {
+                        url: "/assets/JavaScript-logo.png",
+                        alt: "Project 1",
+                    },
+                    {
+                        url: "/assets/nextjs.jpeg",
+                        alt: "Project 1",
+                    },
+                ]}
+            />
+            </div>
+            <div class="cards__container">
+                <ProjectCard
+                title="Project 3"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                github_url="https://github.com/project1"
+                live_url="https://project1.com"
+                images={[
+                    {
+                        url: "/assets/JavaScript-logo.png",
+                        alt: "Project 1",
+                    },
+                    {
+                        url: "/assets/nextjs.jpeg",
+                        alt: "Project 1",
+                    },
+                ]}
+            />
+            </div>
+            <div class="cards__container">
+                <ProjectCard
+                title="Project 4"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                github_url="https://github.com/project1"
+                live_url="https://project1.com"
+                images={[
+                    {
+                        url: "/assets/JavaScript-logo.png",
+                        alt: "Project 1",
+                    },
+                    {
+                        url: "/assets/nextjs.jpeg",
+                        alt: "Project 1",
+                    },
+                ]}
+            />
+            </div>
+            <div class="cards__container">
+                <ProjectCard
+                title="Project 5"
+                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                github_url="https://github.com/project1"
+                live_url="https://project1.com"
+                images={[
+                    {
+                        url: "/assets/JavaScript-logo.png",
+                        alt: "Project 1",
+                    },
+                    {
+                        url: "/assets/nextjs.jpeg",
+                        alt: "Project 1",
+                    },
+                ]}
+            />
+            </div>
+            <div class="cards__container">
+                <ProjectCard
+                title="Project 6"
+                description="Sistema de sesiones dinámico y autenticación fullstack diseñado en ReactJS y NextJS para el frontend y NodeJS y Express para el backend. El sistema permite a los usuarios registrarse, iniciar sesión y cerrar sesión. Además, los usuarios pueden ver su perfil y editar su información personal."
+                github_url="https://github.com/project1"
+                live_url="https://project1.com"
+                images={[
+                    {
+                        url: "/assets/JavaScript-logo.png",
+                        alt: "Project 1",
+                    },
+                    {
+                        url: "/assets/nextjs.jpeg",
+                        alt: "Project 1",
+                    },
+                ]}
+            />
+            </div>
         </div>
     </div>
 </section>
 
 <style>
+    .cards__container {
+        width: 350px;
+        display: flex;
+        flex: 0 0 calc(33.333% - 50px);
+        justify-content: center;
+        align-items: center;
+    }
     .projects__title {
         color: #fff;
         font-size: 2rem;
@@ -121,15 +144,15 @@ const currentLanguage = Astro.url.searchParams.get("lang") === "en" ? "en" : "es
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
-        padding: 30px;
+        gap: 5px;
         min-height: 100vh;
     }
+
     .projects__cards {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin: 20px;
+        margin: 50px;
         gap: 20px;
     }
     .projects__cards__container {
