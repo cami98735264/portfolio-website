@@ -15,114 +15,27 @@ const currentLanguage =
     </h2>
     <div class="projects__cards__container">
         <div class="projects__cards">
-            <div class="cards__container">
-                <ProjectCard
-                title="Sistema de sesiones y autenticación fullstack"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                github_url="https://github.com/project1"
-                live_url="https://project1.com"
-                images={[
-                    {
-                        url: "/assets/JavaScript-logo.png",
-                        alt: "Project 1",
-                    },
-                    {
-                        url: "/assets/nextjs.jpeg",
-                        alt: "Project 1",
-                    },
-                ]}
-            />
-            </div>
-            <div class="cards__container">
-                <ProjectCard
-                title="Project 2"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                github_url="https://github.com/project1"
-                live_url="https://project1.com"
-                images={[
-                    {
-                        url: "/assets/JavaScript-logo.png",
-                        alt: "Project 1",
-                    },
-                    {
-                        url: "/assets/nextjs.jpeg",
-                        alt: "Project 1",
-                    },
-                ]}
-            />
-            </div>
-            <div class="cards__container">
-                <ProjectCard
-                title="Project 3"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                github_url="https://github.com/project1"
-                live_url="https://project1.com"
-                images={[
-                    {
-                        url: "/assets/JavaScript-logo.png",
-                        alt: "Project 1",
-                    },
-                    {
-                        url: "/assets/nextjs.jpeg",
-                        alt: "Project 1",
-                    },
-                ]}
-            />
-            </div>
-            <div class="cards__container">
-                <ProjectCard
-                title="Project 4"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                github_url="https://github.com/project1"
-                live_url="https://project1.com"
-                images={[
-                    {
-                        url: "/assets/JavaScript-logo.png",
-                        alt: "Project 1",
-                    },
-                    {
-                        url: "/assets/nextjs.jpeg",
-                        alt: "Project 1",
-                    },
-                ]}
-            />
-            </div>
-            <div class="cards__container">
-                <ProjectCard
-                title="Project 5"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                github_url="https://github.com/project1"
-                live_url="https://project1.com"
-                images={[
-                    {
-                        url: "/assets/JavaScript-logo.png",
-                        alt: "Project 1",
-                    },
-                    {
-                        url: "/assets/nextjs.jpeg",
-                        alt: "Project 1",
-                    },
-                ]}
-            />
-            </div>
-            <div class="cards__container">
-                <ProjectCard
-                title="Project 6"
-                description="Sistema de sesiones dinámico y autenticación fullstack diseñado en ReactJS y NextJS para el frontend y NodeJS y Express para el backend. El sistema permite a los usuarios registrarse, iniciar sesión y cerrar sesión. Además, los usuarios pueden ver su perfil y editar su información personal."
-                github_url="https://github.com/project1"
-                live_url="https://project1.com"
-                images={[
-                    {
-                        url: "/assets/JavaScript-logo.png",
-                        alt: "Project 1",
-                    },
-                    {
-                        url: "/assets/nextjs.jpeg",
-                        alt: "Project 1",
-                    },
-                ]}
-            />
-            </div>
+            {
+                languages[currentLanguage].projects.projectsList.sort((a, b) => {
+        // Coloca los proyectos con projectType igual a 2 al principio
+        if (a.projectType === 2 && b.projectType !== 2) return -1;
+        if (a.projectType !== 2 && b.projectType === 2) return 1;
+        return 0; // Mantiene el orden para otros projectType
+    }).map((project) => (
+                    <div class="cards__container">
+                        <ProjectCard
+                        title={project.title}
+                        description={project.description}
+                        github_urls={project.github}
+                        live_url={project.live_url}
+                        images={project.images}
+                        alt={project.alt}
+                        technologies={project.technologies}
+                        projectType={project.projectType}
+                    />
+                    </div>
+                ))
+            }
         </div>
     </div>
 </section>
