@@ -105,17 +105,22 @@ switch (projectType) {
     }
     .project__card__description p {
         color: #bdbdbd;
-        font-size: 0.9rem;
+        font-size: clamp(1rem, 2vw, 0.9rem);
         line-height: 1.2;
+    }
+    .project__card__header {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
     }
     .project__card__title {
         color: #fff;
-        font-size: 1.7rem;
+        font-size: clamp(1.6rem, 2vw, 1.7rem);
         line-height: 1.1;
     }
     .project__card__subtitle {
         color: #999898;
-        font-size: 0.9rem;
+        font-size: clamp(0.9rem, 2vw, 0.9rem);
     }
     [data-icon="simple-icons:vercel"] {
         color: #000;
