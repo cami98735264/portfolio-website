@@ -157,7 +157,7 @@ const languages = {
                     frontend: "https://github.com/cami98735264/graphical-interface-monitoreo-placas",
                     backend: "https://github.com/cami98735264/graphical-interface-monitoreo-placas",
                 },
-                technologies: ["javascript", "mysql", "nodedotjs", "express", "mysql"],
+                technologies: ["javascript", "mysql", "nodedotjs", "express"],
                 live: "Ver en vivo",
                 projectType: 2,
                 /* images in /placas_plataforma, there is a total of 12 images */
