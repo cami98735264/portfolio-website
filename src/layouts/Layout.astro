@@ -1,7 +1,7 @@
 ---
-import '@fontsource-variable/jost';
+import "@fontsource-variable/jost";
 const { title } = Astro.props;
-let language = Astro.url.searchParams.get('lang') || 'es';
+let language = Astro.url.searchParams.get("lang") || "es";
 ---
 
 <!doctype html>
@@ -23,12 +23,21 @@ let language = Astro.url.searchParams.get('lang') || 'es';
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
-		font-family: 'Jost Variable', sans-serif;
+		font-family: "Jost Variable", sans-serif;
 		font-weight: 400;
 		color: #ffffff;
 	}
+	.pswp img {
+		max-width: none;
+		object-fit: contain;
+	}
 	body {
-		background: linear-gradient(90deg, rgba(6,3,56,1) 0%, rgba(12,12,102,1) 35%, rgba(1,15,18,1) 100%);
+		background: linear-gradient(
+			90deg,
+			rgba(6, 3, 56, 1) 0%,
+			rgba(12, 12, 102, 1) 35%,
+			rgba(1, 15, 18, 1) 100%
+		);
 	}
 	html {
 		scroll-behavior: smooth;
@@ -40,18 +49,16 @@ let language = Astro.url.searchParams.get('lang') || 'es';
 		padding: 5px 10px;
 		font-size: 1.1rem;
 	}
-
 </style>
-
 
 <script>
 	// add an onScroll event listener to change the navbar background color
-	window.addEventListener('scroll', () => {
-		const navbar = document.querySelector('.navbar');
+	window.addEventListener("scroll", () => {
+		const navbar = document.querySelector(".navbar");
 		if (window.scrollY > 50) {
-			navbar.style.backgroundColor = '#010123';
+			navbar.style.backgroundColor = "#010123";
 		} else {
-			navbar.style.backgroundColor = 'transparent';
+			navbar.style.backgroundColor = "transparent";
 		}
 	});
 </script>

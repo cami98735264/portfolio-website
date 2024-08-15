@@ -5,7 +5,16 @@ import { Icon } from "astro-icon/components";
 import Globe from "../icons/Globe.astro";
 const currentLanguage =
     Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
-const { title, description, github_urls, live_url, images, alt, projectType, technologies } = Astro.props;
+const {
+    title,
+    description,
+    github_urls,
+    live_url,
+    images,
+    alt,
+    projectType,
+    technologies,
+} = Astro.props;
 let project = null;
 switch (projectType) {
     case 1:
@@ -26,10 +35,7 @@ switch (projectType) {
             {
                 images.map((image) => {
                     return (
-                        <a
-                            href={image.url}
-                            class="swiper-slide"
-                        >
+                        <a href={image.url} class="swiper-slide">
                             <Image
                                 loading="eager"
                                 width={1280}
@@ -55,7 +61,10 @@ switch (projectType) {
             <div class="project__card__description">
                 <p>{description}</p>
                 <div class="project__card__links">
-                    <a class="github__icon" data-links={JSON.stringify(github_urls)}>
+                    <a
+                        class="github__icon"
+                        data-links={JSON.stringify(github_urls)}
+                    >
                         <Icon size={20} name="simple-icons:github" />
                     </a>
                     <a class="live__icon" data-live-url>
@@ -65,9 +74,11 @@ switch (projectType) {
             </div>
         </div>
         <div class="project__card__tecnologies">
-            {technologies.map((technology) => (
-                <Icon size={20} name={`simple-icons:${technology}`} />
-            ))}
+            {
+                technologies.map((technology) => (
+                    <Icon size={20} name={`simple-icons:${technology}`} />
+                ))
+            }
         </div>
     </div>
 </div>
@@ -81,7 +92,6 @@ switch (projectType) {
         width: 350px;
         border-radius: 10px;
         box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-        
     }
     .project__card__body {
         display: flex;
@@ -194,29 +204,29 @@ switch (projectType) {
 </style>
 
 <script>
-    import Swiper from 'swiper';
-    import {Navigation} from 'swiper/modules'
-    import {Pagination} from 'swiper/modules'
+    import Swiper from "swiper";
+    import { Navigation } from "swiper/modules";
+    import { Pagination } from "swiper/modules";
     // import Swiper and modules styles
     import "swiper/css";
     import "swiper/css/navigation";
     import "swiper/css/pagination";
     import PhotoSwipeLightbox from "photoswipe/lightbox";
     import "photoswipe/style.css";
-    import Swal from 'sweetalert2'
+    import Swal from "sweetalert2";
 
-import languages from "../data/languages";
+    import languages from "../data/languages";
 
     const swiper = new Swiper(".swiper", {
         modules: [Navigation, Pagination],
         pagination: {
-        el: ".swiper-pagination",
-        type: "progressbar",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+            el: ".swiper-pagination",
+            type: "progressbar",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
     });
 
     const lightbox = new PhotoSwipeLightbox({
