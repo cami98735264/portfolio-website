@@ -376,7 +376,8 @@ const languages = {
     /* images in /virtual_interpreter, there is 1 gif: maingif.gif */
     images: [{
         url: "/projects_screenshots/virtual_interpreter/maingif.gif",
-        alt: "Imagen 1"
+        alt: "Imagen 1",
+        lowQuality: true
     }]
 }]
         }
@@ -832,7 +833,8 @@ const languages = {
             /* images in /virtual_interpreter, there is 1 gif: maingif.gif */
             images: [{
                 url: "/projects_screenshots/virtual_interpreter/maingif.gif",
-                alt: "Image 1"
+                alt: "Image 1",
+                lowQuality: true
             }]
             
         }]
