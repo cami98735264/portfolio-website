@@ -380,6 +380,13 @@ const languages = {
         lowQuality: true
     }]
 }]
+        },
+        contactMe: {
+            title: "Asunto",
+            description: "Descripción",
+            placeholderText: "Me gustaría hablar contigo sobre tus servicios...",
+            buttonText: "¡Llevame allá!",
+            contactMeTitle: "¡Contáctame y hablemos!"
         }
     },
     en: {
@@ -407,7 +414,7 @@ const languages = {
             },
             {
                 name: "Contact",
-                redirectUrl: "#contact"
+                redirectUrl: "#contact-me"
             },
         ],
         whatsappText: "Hello! 👋, How are you? I would like to know more about your services.",
@@ -838,6 +845,13 @@ const languages = {
             }]
             
         }]
+        },
+        contactMe: {
+            title: "Subject",
+            description: "Description",
+            placeholderText: "I'd like to talk with you about the services you offer",
+            buttonText: "Get me there!",
+            contactMeTitle: "Let's talk about businesses!"
         }
     }
 

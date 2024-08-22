@@ -1,0 +1,113 @@
+---
+import languages from "../data/languages.js";
+const currentLanguage =
+    Astro.url.searchParams.get("lang") === "en" ? "en" : "es";
+---
+
+<section class="contactme__container" id={currentLanguage === "en" ? "contact-me" : "contacto"}>
+    <h2 class="contactme__title">
+        {languages[currentLanguage].contactMe.contactMeTitle}
+    </h2>
+    <form class="contactme__form">
+    <div class="contactme__inputs__container">
+        <label for="title">{languages[currentLanguage].contactMe.title}</label>
+        <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder={languages[currentLanguage].contactMe
+                .placeholderText}
+            required
+        />
+        </div>
+        <div class="contactme__inputs__container">
+            <label for="body"
+                >{languages[currentLanguage].contactMe.description}</label>
+            <textarea
+                name="body"
+                id="body"
+                cols="30"
+                rows="40"
+                placeholder={languages[currentLanguage].contactMe
+                    .placeholderText}
+                required></textarea>
+        </div>
+        <button type="submit"
+            >{languages[currentLanguage].contactMe.buttonText}</button
+        >
+    </form>
+</section>
+
+<style>
+    .contactme__title {
+        font-size: 1.7rem;
+        color: #fff;
+        font-weight: 700;
+    }
+    .contactme__container {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+    }
+    .contactme__container form {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .contactme__container input, .contactme__container textarea {
+        font-weight: 400;
+        border: none;
+        max-width: 100%;
+        min-width: 100%;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+        width: 100%;
+        outline: none;
+        color: #808080;
+        background-color: rgba(21, 35, 220, 0.28);
+    }
+    .contactme__container textarea {
+        field-sizing: content;
+        min-height: 300px;
+        max-height: 800px;
+    }
+    .contactme__container form button {
+        background-color: #7702a2;
+background-image: linear-gradient(225deg, #7702a2 0%, #5e01bb 50%, #380a9a 100%);
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        color: #d6d6d6;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        cursor: pointer;
+    }
+
+    .contactme__inputs__container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .contactme__inputs__container label {
+        font-weight: 400;
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        color: #cccbcb;
+    }
+    /* style textarea scroll */
+
+</style>
+
+<script>
+    const contactmeForm = document.querySelector(".contactme__form");
+
+    contactmeForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const title = document.querySelector("#title").value;
+        const body = document.querySelector("#body").value;
+        window.location.href = `https://mail.google.com/mail/?view=cm&fs=1&to=mashlowtm0510@gmail.com&su=${title}&body=${body}`
+    })
+</script>
