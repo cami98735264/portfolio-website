@@ -4,31 +4,19 @@ import Whatsapp from "../icons/Whatsapp.astro"
 import Linkedin from "../icons/Linkedin.astro"
 import Github from "../icons/Github.astro"
 import Gmail from "../icons/Gmail.astro"
-import React from "../icons/React.astro"
-import Next from "../icons/Next.astro"
-import MySQL from "../icons/MySQL.astro"
-import MongoDB from "../icons/MongoDB.astro"
-import Node from "../icons/Node.astro"
-import Typescript from "../icons/Typescript.astro"
-import Express from "../icons/Express.astro"
-
-const imageProps = {
-    src: "/assets/sample-profile.jpg",
-    alt: "Cristian Dev",
-    width: 1280,
-    height: 720,
-    /* add eagerly loading */
-    loading: "eager"
-
-
-    }
 ---
 
 <main>
     <section class="aboutme">
         <div class="aboutme__container">
             <div class="aboutme__image">
-                <Image {...imageProps}/>
+                <Image {...{
+                    src: "/assets/sample-profile.jpg",
+                    alt: "Cristian Dev",
+                    width: 1280,
+                    height: 720,
+                    loading: "eager"
+                    }}/>
             </div>
             <div class="aboutme__info">
             <div class="aboutme__header">
