@@ -1,0 +1,210 @@
+---
+import Image from "astro/components/Image.astro"
+import Whatsapp from "../icons/Whatsapp.astro"
+import Linkedin from "../icons/Linkedin.astro"
+import Github from "../icons/Github.astro"
+import Gmail from "../icons/Gmail.astro"
+import React from "../icons/React.astro"
+import Next from "../icons/Next.astro"
+import MySQL from "../icons/MySQL.astro"
+import MongoDB from "../icons/MongoDB.astro"
+import Node from "../icons/Node.astro"
+import Typescript from "../icons/Typescript.astro"
+import Express from "../icons/Express.astro"
+
+const imageProps = {
+    src: "/assets/sample-profile.jpg",
+    alt: "Cristian Dev",
+    width: 1280,
+    height: 720,
+    /* add eagerly loading */
+    loading: "eager"
+
+
+    }
+---
+
+<main>
+    <section class="aboutme">
+        <div class="aboutme__container">
+            <div class="aboutme__image">
+                <Image {...imageProps}/>
+            </div>
+            <div class="aboutme__info">
+            <div class="aboutme__header">
+                <div class="aboutme__socialmedia">
+                    <span class="aboutme__socialmedia__item" style="background-color: rgb(84, 2, 84)">
+                        <Github/>
+                    </span>
+                    <span class="aboutme__socialmedia__item" style="background-color: rgb(84, 2, 84);">
+                        <Linkedin/>
+                    </span>
+                    <span class="aboutme__socialmedia__item" style="background-color: rgb(84, 2, 84)">
+                        <Gmail/>
+                    </span>
+                    <span class="aboutme__socialmedia__item" style="background-color: rgb(84, 2, 84);">
+                        <Whatsapp/>
+                    </span>
+                </div>
+                <hr/>
+            </div>
+            <div class="aboutme__body__desc">
+                <h1 class="aboutme__title">Hi! 👋 My name is Cristián, I'm a Full Stack Developer</h1>
+            <span class="aboutme__desc">
+                I'm a Full Stack developer specializing in backend and with extensive knowledge in JavaScript, ReactJS, and ExpressJS. I excel in advanced programming, database management, and user experience design (UI/UX).
+            </span>
+            <div class="aboutme__buttons">
+                <button>Download CV</button>
+                <button>Contact me</button>
+            </div>
+            </div>
+
+            </div>
+        </div>        
+    </section>
+</main>
+
+<style>
+    .aboutme {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 100px);
+    }
+    .aboutme__image img {
+        object-fit: cover;
+        border-radius: 50px;
+        height: 100%;
+        width: 100%;
+    }
+    .aboutme__image {
+        width: 100%;
+        height: 100%;
+    }
+    .aboutme__body__desc {
+        display: flex;
+        flex-direction: column;
+        /* polymorfed glassmorphism */
+        background: rgb(31, 31, 31);
+        padding: 20px;
+        border-radius: 10px;
+        gap: 20px;
+    }
+    .aboutme__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 80px;
+        width: 70%;
+        height: 50%;
+    }
+    .aboutme__info {
+        flex: 1 1 calc(100% - 100px);
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .aboutme__header {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .aboutme__title {
+        font-size: clamp(1.3rem, 5vw, 1.6rem);
+        color: var(--titles);
+        font-weight: 400;
+        line-height: 1.3;
+    }
+    .aboutme__socialmedia {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .aboutme__socialmedia__item {
+        display: flex;
+        justify-content: center;
+        outline: 2px solid #5a0684;
+        align-items: center;
+        padding: 15px;
+        border-radius: 50%;
+    }
+    .aboutme__footer {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+    }
+    hr {
+
+        border: 1px solid #5a0684;
+    }
+    .aboutme__desc {
+        font-size: clamp(0.8rem, 2vw, 0.9rem);
+        color: var(--description);
+    }
+    .aboutme__buttons {
+        display: flex;
+        gap: 10px;
+    }
+    .aboutme__buttons button {
+        padding: 15px 25px;
+        border: none;
+        border-radius: 10px;
+        background-color: #5a0684;
+        color: white;
+        font-size: clamp(0.7rem, 2vw, 0.9rem);
+        cursor: pointer;
+
+    }
+    @media(width < 1139px) {
+        .aboutme__container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+        .aboutme__socialmedia {
+            width: 100%;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+        .aboutme__image {
+            height: 60%;
+        }
+        .aboutme__socialmedia__item {
+            padding: 15px;
+        }
+        .aboutme__socialmedia__item * {
+            width: 18px;
+            height: 18px;
+        }
+
+    }
+    @media (width < 641px) {
+        .aboutme__title {
+            text-align: center;
+        }
+        .aboutme__container {
+            width: 90%;
+            flex-direction: column;
+            gap: 20px;
+            height: auto;
+        }
+        .aboutme__image {
+            height: 50%;
+        }
+        .aboutme__socialmedia {
+            gap: 10px;
+            justify-content: space-between;
+        }
+        .aboutme__socialmedia__item {
+            padding: 10px;
+
+        }
+        .aboutme__socialmedia__item * {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+</style>

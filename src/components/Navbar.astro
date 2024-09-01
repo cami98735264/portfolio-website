@@ -1,0 +1,85 @@
+---
+import User from "../icons/User.astro"
+import Tools from "../icons/Tools.astro"
+import Lightbulb from "../icons/Lightbulb.astro"
+import Briefcase from "../icons/Briefcase.astro"
+---
+
+<nav class="navbar">
+  <div class="navbar__container">
+    <a href="/" class="navbar__link">
+    <span class="navbar__link__icon">
+        <User />
+    </span>
+    <span class="navbar__link__desc">
+        <strong>Sobre mí</strong>
+    </span>
+    </a>
+    <a href="/proyectos" class="navbar__link">
+    <span class="navbar__link__icon">
+        <Tools />
+    </span>
+    <span class="navbar__link__desc">
+        <strong>Proyectos</strong>
+    </span>
+    </a>
+    <a href="/habilidades" class="navbar__link">
+    <span class="navbar__link__icon">
+        <Lightbulb />
+    </span>
+    <span class="navbar__link__desc">
+        <strong>Habilidades</strong>
+    </span>
+    </a>
+    <a href="/experiencia" class="navbar__link">
+    <span class="navbar__link__icon">
+        <Briefcase />
+    </span>
+    <span class="navbar__link__desc">
+        <strong>Experiencia</strong>
+    </span>
+    </a>
+
+</div>
+</nav>
+
+
+<style>
+    .navbar__container {
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #161616;
+    }
+    .navbar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .navbar__link__desc strong {
+        text-align: center;
+        font-size: clamp(0.6rem, 2vw, 1rem);
+
+    }
+    .navbar__link {
+        flex: 1 1 0;
+    }
+    .navbar__container a {
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #6b6b6b;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+    @media (width < 575px) {
+        .navbar__link__icon * {
+            width: 30px;
+            height: 30px;
+        }
+    }
+</style>
