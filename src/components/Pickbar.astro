@@ -39,9 +39,11 @@ const currentLanguage = getLangFromUrl(Astro.url);
 </style>
 
 <script>
-    const select = document.getElementById('language__picker__select');
-    select.addEventListener('change', (e) => {
-        console.log(e.target.value);
-        window.location.href = `/${e.target.value}/`;
-    });
+    const selectPicker = document.getElementById('language__picker__select');
+    if (selectPicker) {
+        selectPicker.addEventListener('change', (e) => {
+            const target = e.target as HTMLSelectElement;
+            window.location.href = `/${target.value}/`;
+        });
+    }
 </script>
