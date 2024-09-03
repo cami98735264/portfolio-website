@@ -3,40 +3,45 @@ import User from "../icons/User.astro"
 import Tools from "../icons/Tools.astro"
 import Lightbulb from "../icons/Lightbulb.astro"
 import Briefcase from "../icons/Briefcase.astro"
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
 
 <nav class="navbar">
   <div class="navbar__container">
-    <a href="/" class="navbar__link">
+    <a href={`/${lang}/`} class="navbar__link">
     <span class="navbar__link__icon">
         <User />
     </span>
     <span class="navbar__link__desc">
-        <strong>Sobre mí</strong>
+        <strong>{t('nav.aboutMe')}</strong>
     </span>
     </a>
-    <a href="/proyectos" class="navbar__link">
+    <a href={`/${lang}/projects`} class="navbar__link">
     <span class="navbar__link__icon">
         <Tools />
     </span>
     <span class="navbar__link__desc">
-        <strong>Proyectos</strong>
+        <strong>{t('nav.projects')}</strong>
     </span>
     </a>
-    <a href="/habilidades" class="navbar__link">
+    <a href={`/${lang}/skills`} class="navbar__link">
     <span class="navbar__link__icon">
         <Lightbulb />
     </span>
     <span class="navbar__link__desc">
-        <strong>Habilidades</strong>
+        <strong>{t('nav.skills')}</strong>
     </span>
     </a>
-    <a href="/experiencia" class="navbar__link">
+    <a href={`/${lang}/experience`} class="navbar__link">
     <span class="navbar__link__icon">
         <Briefcase />
     </span>
     <span class="navbar__link__desc">
-        <strong>Experiencia</strong>
+        <strong>{t('nav.experience')}</strong>
     </span>
     </a>
 
