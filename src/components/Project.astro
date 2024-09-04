@@ -1,0 +1,93 @@
+---
+const { projectId } = Astro.props;
+import Node from "../icons/Node.astro";
+import Typescript from "../icons/Typescript.astro";
+import React from "../icons/React.astro";
+import MySQL from "../icons/MySQL.astro";
+---
+
+<div class="project__container">
+    <div class="project">
+        <div class="project__description__container">
+            <div class="project__header">
+                <div class="project__technologies">
+                    <span class="project__technology">
+                        <Node/>
+                    </span>
+                    <span class="project__technology">
+                        <Typescript/>
+                    </span>
+                    <span class="project__technology">
+                        <React/>
+                    </span>
+                    <span class="project__technology">
+                        <MySQL/>
+                    </span>
+                </div>
+                <h2 class="project__title">License plate tracking and monitoring platform</h2>
+                <div class="project__subtitle">Personal project</div>
+            </div>
+            <div class="project__description">
+                Platform and license plate detection software that uses the YoloV8 artificial intelligence algorithm for license plate recognition. Implementation of functionalities to study and map behavior patterns based on the location of license plate records within the web platform hosted in static files using ExpressJS.
+            </div>
+            <div class="project__links"></div>
+        </div>
+        <div class="project__pictures__container"></div>
+    </div>
+</div>
+
+<style>
+    .project__container {
+        padding: 60px;
+        display: flex;
+        height: calc(100dvh - 100px);
+        justify-content: center;
+        align-items: center;
+    }
+    .project {
+        gap: 24px;
+        padding: 20px;
+        height: 100%;
+        border: 2px solid #fff;
+        flex: 1 1 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .project__description__container {
+        padding: 10px;
+        border: 1px solid #fff;
+        display: flex;
+        flex: 1 1 500px;
+        flex-direction: column;
+    }
+    .project__pictures__container {
+        border: 1px solid #fff;
+        flex: 1 1 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .project__title {
+        font-size: clamp(1rem, 2vw, 2rem);
+        color: var(--titles);
+        font-weight: 400;
+    }
+    .project__description {
+        color: var(--description);
+        font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+    .project__technologies {
+        display: flex;
+        gap: 10px;
+    }
+    .project__technology {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #2b2b2b;
+        border-radius: 15px;
+        border: 3px solid #3a3a3a;
+    }
+</style>

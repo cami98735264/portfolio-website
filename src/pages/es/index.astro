@@ -1,13 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Card from '../../components/Card.astro';
-import Navbar from '../../components/Navbar.astro';
 import AboutMe from '../../views/AboutMe.astro';
-import Pickbar from '../../components/Pickbar.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const title: any = t('layout.title');
 ---
 
-<Layout title="Cristián Dev - Full Stack Developer">
-	<Pickbar />
-	<Navbar />
+<Layout title={title}>
 	<AboutMe />
 </Layout>

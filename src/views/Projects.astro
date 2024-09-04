@@ -1,0 +1,16 @@
+---
+import Project from "../components/Project.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="projects__container">
+    <Project projectId={1} />
+</section>
+
+<style>
+    .projects__container {
+        min-height: 100dvh;
+    }
+</style>

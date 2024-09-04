@@ -1,0 +1,13 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import Projects from '../../../views/Projects.astro';
+const title: any = t('layout.projectsTitle');
+
+---
+
+<Layout title={title}>
+    <Projects/>
+</Layout>
