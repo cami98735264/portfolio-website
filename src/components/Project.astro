@@ -1,9 +1,11 @@
 ---
 const { projectId } = Astro.props;
+import { Image } from 'astro:assets';
 import Node from "../icons/Node.astro";
 import Typescript from "../icons/Typescript.astro";
 import React from "../icons/React.astro";
 import MySQL from "../icons/MySQL.astro";
+import Github from "../icons/Github.astro";
 ---
 
 <div class="project__container">
@@ -30,9 +32,20 @@ import MySQL from "../icons/MySQL.astro";
             <div class="project__description">
                 Platform and license plate detection software that uses the YoloV8 artificial intelligence algorithm for license plate recognition. Implementation of functionalities to study and map behavior patterns based on the location of license plate records within the web platform hosted in static files using ExpressJS.
             </div>
-            <div class="project__links"></div>
+            <div class="project__links">
+                <a class="source__code"><span class="links__text source__code__text">Source code</span><span class="links__icons source__code__icon"><Github/></span></a>
+                <a class="live__preview"><span class="links__text live__preview__text">Live preview</span><span class="links__icons live__preview__icon"><Github/></span></a>
+            </div>
+            <div class="project__timestamp"><span>
+                10/2023</span></div>
         </div>
-        <div class="project__pictures__container"></div>
+        <div class="project__pictures__container"><Image {...{
+            src: "https://placehold.co/1280x720/png",
+            alt: "Project screenshot",
+            width: 1280,
+            height: 720,
+            loading: "eager"
+        }}/></div>
     </div>
 </div>
 
@@ -44,38 +57,70 @@ import MySQL from "../icons/MySQL.astro";
         justify-content: center;
         align-items: center;
     }
+    .project__timestamp {
+        color: #6b6b6b;
+        border-radius: 15px;
+        display: flex; 
+        justify-content: flex-end;
+    }
+    .project__header {
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+
+    }
+    .project__timestamp span {
+        background-color: #1d1d1d;
+        padding: 15px 20px;
+        border-radius: 15px;
+        font-size: clamp(0.8rem, 2vw, 1.2rem);
+
+    }
     .project {
-        gap: 24px;
+        gap: 36px;
         padding: 20px;
         height: 100%;
-        border: 2px solid #fff;
         flex: 1 1 0;
         display: flex;
         flex-wrap: wrap;
     }
     .project__description__container {
         padding: 10px;
-        border: 1px solid #fff;
         display: flex;
-        flex: 1 1 500px;
+        flex: 1 1 700px;
         flex-direction: column;
+        gap: 25px;
+    }
+    .links__icons * {
+        width: 40px;
+        height: 40px;
     }
     .project__pictures__container {
-        border: 1px solid #fff;
-        flex: 1 1 500px;
+        flex: 1 1 700px;
         display: flex;
+        height: 100%;
         justify-content: center;
         align-items: center;
-
+    }
+    .project__pictures__container img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 40px;
+    }
+    .project__subtitle {
+        color: var(--subtitles);
+        font-size: clamp(0.8rem, 2vw, 1.6rem);
     }
     .project__title {
-        font-size: clamp(1rem, 2vw, 2rem);
+        font-size: clamp(1.4rem, 2.2vw, 2.8rem);
         color: var(--titles);
         font-weight: 400;
     }
     .project__description {
+        height: 100%;
         color: var(--description);
-        font-size: clamp(0.8rem, 2vw, 1rem);
+        font-size: clamp(0.8rem, 2vw, 1.8rem);
     }
     .project__technologies {
         display: flex;
@@ -85,9 +130,71 @@ import MySQL from "../icons/MySQL.astro";
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px;
-        background-color: #2b2b2b;
-        border-radius: 15px;
-        border: 3px solid #3a3a3a;
+        padding: 15px;
+        background-color: rgb(47, 47, 47);
+        border-radius: 10px;
+    }
+    .project__technology * {
+            width: 25px;
+            height: 25px;
+        }
+    .project__links {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .project__links a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px;
+        border-radius: 40px;
+        background-color: #000;
+        color: var(--description);
+        text-decoration: none;
+        flex: 1 1 200px;
+        justify-content: space-between;
+    }
+    .project__links span {
+        font-size: clamp(0.8rem, 2vw, 1.3rem);
+
+    }
+    .links__text {
+        padding-left: 15px;
+    }
+
+    @media (width < 1564px) {
+        .project {
+            gap: 5px;
+            padding: 0;
+        }
+        .project__pictures__container {
+            height: 50%;
+        }
+        .project__container {
+            height: 100%;
+            padding: 10px;
+        }
+        .project__links a {
+            padding: 10px;
+        }
+        .project__links {
+            gap: 10px;
+        }
+        .project__technology {
+            padding: 10px;
+        }
+        .project__technology * {
+            width: 15px;
+            height: 15px;
+        }
+        .source__code__icon *, .live__preview__icon * {
+            width: 30px;
+            height: 30px;
+        }
+        .project__technologies {
+            gap: 4px;
+        }
     }
 </style>
