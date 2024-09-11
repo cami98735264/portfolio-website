@@ -10,8 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.15.1",
     "@astrojs/check": "^0.9.3",
+    "@splidejs/splide": "^4.1.4",
+    "astro": "^4.15.1",
+    "photoswipe": "^5.4.4",
+    "reveal.js": "^5.1.0",
+    "swiper": "^11.1.12",
     "typescript": "^5.5.4"
   }
 }
