@@ -1,111 +1,112 @@
 ---
-import User from "../icons/User.astro"
-import Tools from "../icons/Tools.astro"
-import Lightbulb from "../icons/Lightbulb.astro"
-import Briefcase from "../icons/Briefcase.astro"
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import User from "../icons/User.astro";
+import Tools from "../icons/Tools.astro";
+import Lightbulb from "../icons/Lightbulb.astro";
+import Briefcase from "../icons/Briefcase.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 ---
 
 <nav class="navbar">
   <div class="navbar__container">
     <a href={`/${lang}/`} class="navbar__link">
-    <span class="navbar__link__icon">
+      <span class="navbar__link__icon">
         <User />
-    </span>
-    <span class="navbar__link__desc">
-        <strong>{t('nav.aboutMe')}</strong>
-    </span>
+      </span>
+      <span class="navbar__link__desc">
+        <strong>{t("nav.aboutMe")}</strong>
+      </span>
     </a>
     <a href={`/${lang}/projects`} class="navbar__link">
-    <span class="navbar__link__icon">
+      <span class="navbar__link__icon">
         <Tools />
-    </span>
-    <span class="navbar__link__desc">
-        <strong>{t('nav.projects')}</strong>
-    </span>
+      </span>
+      <span class="navbar__link__desc">
+        <strong>{t("nav.projects")}</strong>
+      </span>
     </a>
     <a href={`/${lang}/skills`} class="navbar__link">
-    <span class="navbar__link__icon">
+      <span class="navbar__link__icon">
         <Lightbulb />
-    </span>
-    <span class="navbar__link__desc">
-        <strong>{t('nav.skills')}</strong>
-    </span>
+      </span>
+      <span class="navbar__link__desc">
+        <strong>{t("nav.skills")}</strong>
+      </span>
     </a>
     <a href={`/${lang}/experience`} class="navbar__link">
-    <span class="navbar__link__icon">
+      <span class="navbar__link__icon">
         <Briefcase />
-    </span>
-    <span class="navbar__link__desc">
-        <strong>{t('nav.experience')}</strong>
-    </span>
+      </span>
+      <span class="navbar__link__desc">
+        <strong>{t("nav.experience")}</strong>
+      </span>
     </a>
-
-</div>
+  </div>
 </nav>
 
-
 <style>
-    .navbar__container {
-        height: 100px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        background-color: #161616;
-    }
-    .navbar {
-        z-index: 100;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-    .navbar__link__desc strong {
-        text-align: center;
-        font-size: clamp(0.6rem, 2vw, 0.9rem);
+  .navbar__container {
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #161616;
+  }
+  .navbar {
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .navbar__link__desc strong {
+    text-align: center;
+    font-size: clamp(0.6rem, 2vw, 0.9rem);
+  }
+  .navbar__link {
+    flex: 1 1 0;
+  }
+  .navbar__container a {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #6b6b6b;
+    padding: 16px;
+    text-decoration: none;
+  }
 
+  @media (width < 575px) {
+    .navbar__link__icon * {
+      width: 30px;
+      height: 30px;
     }
-    .navbar__link {
-        flex: 1 1 0;
-    }
-    .navbar__container a {
-        display: flex;
-        gap: 5px;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: #6b6b6b;
-        padding: 16px;
-        text-decoration: none;
-    }
-
-    @media (width < 575px) {
-        .navbar__link__icon * {
-            width: 30px;
-            height: 30px;
-        }
-    }
+  }
 </style>
 
 <script>
-    const navbar = document.querySelector('.navbar') as HTMLElement;
-    if (navbar) {
-        navbar.style.transition = 'opacity 0.5s';
-    }
+  const navbar = document.querySelector(".navbar") as HTMLElement;
+  if (navbar) {
+    navbar.style.transition = "opacity 0.5s";
+  }
 
-    window.addEventListener('scroll', () => {
-        // Check if the navbar exists before accessing its properties
-        const navbar = document.querySelector('.navbar') as HTMLElement | null;
-        if (navbar) {
-            // Determine if the user has scrolled to the bottom of the page
-            if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
-                navbar.style.opacity = '0';
-            } else {
-                navbar.style.opacity = '1';
-            }
-        }
-    });
+  window.addEventListener("scroll", () => {
+    // Check if the navbar exists before accessing its properties
+    const navbar = document.querySelector(".navbar") as HTMLElement | null;
+    if (navbar) {
+      // Determine if the user has scrolled to the bottom of the page
+      if (
+        window.innerHeight + Math.round(window.scrollY) >=
+        document.body.offsetHeight
+      ) {
+        navbar.style.opacity = "0";
+        navbar.style.height = "0";
+      } else {
+        navbar.style.opacity = "1";
+        navbar.style.height = "100px";
+      }
+    }
+  });
 </script>
