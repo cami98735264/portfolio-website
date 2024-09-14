@@ -97,10 +97,7 @@ const t = useTranslations(lang);
     const navbar = document.querySelector(".navbar") as HTMLElement | null;
     if (navbar) {
       // Determine if the user has scrolled to the bottom of the page
-      if (
-        window.innerHeight + Math.round(window.scrollY) >=
-        document.body.offsetHeight
-      ) {
+      if (Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight) {
         navbar.style.opacity = "0";
         navbar.style.height = "0";
       } else {
