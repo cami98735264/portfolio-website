@@ -87,6 +87,7 @@ const projectsList: any = t("projectsList");
     </div>
   </div>
 </div>
+<hr />
 
 <style>
   .slider {
@@ -95,6 +96,10 @@ const projectsList: any = t("projectsList");
     height: 100%;
     overflow: hidden;
     z-index: 1;
+  }
+  hr {
+    width: 100%;
+    border: 1px solid #2b2b2b;
   }
   /* Lightbox styles */
 .lightbox {
@@ -134,7 +139,7 @@ const projectsList: any = t("projectsList");
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
   .slider__button {
@@ -166,6 +171,7 @@ const projectsList: any = t("projectsList");
     height: calc(100dvh - 100px);
     max-width: 2118px;
     max-height: 800px;
+    /* apply more responsive design min-height and min-width */
     justify-content: center;
     align-items: center;
   }
@@ -183,7 +189,7 @@ const projectsList: any = t("projectsList");
   .project__timestamp span {
     background-color: #1d1d1d;
     padding: 15px 20px;
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: clamp(0.8rem, 2vw, 1.2rem);
   }
   .project {
@@ -191,13 +197,15 @@ const projectsList: any = t("projectsList");
     padding: 20px;
     height: 100%;
     flex: 1 1 0;
-    border-radius: 40px;
     display: flex;
     flex-wrap: wrap;
   }
   .project__description__container {
+    background-color: #111111;
+    padding: 20px;
+    border-radius: 10px;
     display: flex;
-    flex: 1 1 700px;
+    flex: 1 1 600px;
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
@@ -208,13 +216,13 @@ const projectsList: any = t("projectsList");
   }
   .project__pictures__container {
     /* add a white box shadow to the image */
-    outline: 3px solid #5e5e5e;
-    border-radius: 20px;
+    background-color: #111111;
+    padding: 10px;
+    border-radius: 10px;
     position: relative;
-    flex: 1 1 700px;
+    flex: 1 1 600px;
     z-index: 1;
     display: flex;
-    height: 100%;
     justify-content: center;
     align-items: center;
   }
@@ -283,7 +291,7 @@ const projectsList: any = t("projectsList");
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 40px;
     background-color: #000;
     color: var(--description);
@@ -297,14 +305,26 @@ const projectsList: any = t("projectsList");
   .links__text {
     padding-left: 15px;
   }
+  @media (width < 1490px) {
+    
+    .project__container {
+      max-height: 100%;
 
-  @media (width < 1590px) {
+    }
+    .project__pictures__container {
+      height: 50%;
+      border-radius: 10px;
+    }
+  }
+  @media (width < 940px) {
     .project__container {
       max-height: 100%;
     }
     .project {
+      background-color: #111111;
       gap: 20px;
       padding: 0;
+      border-radius: 20px;
     }
     .project__pictures__container {
       height: 50%;
@@ -312,7 +332,6 @@ const projectsList: any = t("projectsList");
     }
     .slider-image {
       border-radius: 10px;
-
     }
     .project__container {
       height: 100%;
@@ -320,6 +339,7 @@ const projectsList: any = t("projectsList");
     }
     .project__links a {
       padding: 10px;
+      border-end-start-radius: 10px;
     }
     .project__links {
       gap: 10px;
@@ -335,6 +355,10 @@ const projectsList: any = t("projectsList");
     .live__preview__icon * {
       width: 30px;
       height: 30px;
+    }
+    .project__timestamp span {
+      padding: 10px 15px;
+      font-size: clamp(0.8rem, 2vw, 1.2rem);
     }
     .project__technologies {
       gap: 4px;
@@ -384,17 +408,16 @@ sliders.forEach((sliderContainer) => {
 });
 </script>
 
-<script is:inline>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
-  const sliderImages = document.querySelectorAll('.slider-image');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightbox-image');
+  const sliderImages = document.querySelectorAll<HTMLImageElement>('.slider-image');
+  const lightbox = document.getElementById('lightbox') as HTMLDivElement | null;
+  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement | null;
 
-  // Check if the buttons already exist
-  if (!lightbox.querySelector('.lightbox__button.prev')) {
+  if (lightbox && !lightbox.querySelector('.lightbox__button.prev')) {
     const prevButton = document.createElement('button');
     const nextButton = document.createElement('button');
-    //apply styles to lightbox__button
+    
     const lightboxButtonStyle = `
       position: absolute;
       top: 50%;
@@ -408,51 +431,55 @@ sliders.forEach((sliderContainer) => {
       border-radius: 50%;
       z-index: 10;
     `;
+    
     prevButton.style.cssText = lightboxButtonStyle;
     nextButton.style.cssText = lightboxButtonStyle;
-    //apply styles to prev button
+
     prevButton.style.left = '10px';
-    //apply styles to next button
     nextButton.style.right = '10px';
-    // Add classes and text content to buttons
-        
+
     prevButton.className = 'lightbox__button prev';
     prevButton.textContent = '<';
     nextButton.className = 'lightbox__button next';
     nextButton.textContent = '>';
-    
-    lightbox.appendChild(prevButton);
-    lightbox.appendChild(nextButton);
 
-    // Add event listeners to lightbox buttons
+    if (lightbox) {
+      lightbox.appendChild(prevButton);
+      lightbox.appendChild(nextButton);
+    }
+
     prevButton.addEventListener('click', showPreviousImage);
     nextButton.addEventListener('click', showNextImage);
   }
 
-  // Add event listeners to images
   sliderImages.forEach((image, index) => {
     image.addEventListener('click', () => {
       openLightbox(index);
     });
   });
 
-  // Add event listener to close the lightbox
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
 
   let currentIndex = 0;
 
-  function openLightbox(index) {
+  function openLightbox(index: number) {
     currentIndex = index;
     updateLightboxImage();
-    lightbox.classList.add('show');
+    if (lightbox) {
+      lightbox.classList.add('show');
+    }
   }
 
   function closeLightbox() {
-    lightbox.classList.remove('show');
+    if (lightbox) {
+      lightbox.classList.remove('show');
+    }
   }
 
   function showPreviousImage() {
@@ -466,8 +493,10 @@ sliders.forEach((sliderContainer) => {
   }
 
   function updateLightboxImage() {
-    const src = sliderImages[currentIndex].src;
-    lightboxImage.src = src;
+    if (lightboxImage) {
+      const src = sliderImages[currentIndex].src;
+      lightboxImage.src = src;
+    }
   }
 });
 
