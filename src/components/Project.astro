@@ -8,7 +8,7 @@ import React from "../icons/React.astro";
 import MySQL from "../icons/MySQL.astro";
 import Github from "../icons/Github.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import {projectsRoutes}  from "../utils/projectsScreenshots.ts";
+import { projectsRoutes } from "../utils/projectsScreenshots.ts";
 const projectsScreenshots: any = projectsRoutes;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -59,19 +59,107 @@ const projectsList: any = t("projectsList");
         <span> {projectsList[projectId].date}</span>
       </div>
     </div>
-    <div class="project__pictures__container">
-      <div class="project__pictures__container"><Image {...{
-        src: "https://placehold.co/1280x720/png",
-        alt: "Project screenshot",
-        width: 1280,
-        height: 720,
-        loading: "eager"
-    }}/></div>
-</div>
+    <div class="project__pictures__container slider-container">
+      <div class="slider">
+        <div class="slider__images">
+          {
+            projectsScreenshots[projectId].screenshots.map((screenshot: string, index: number) => (
+              <Image
+                class="slider-image"
+                src={screenshot}
+                data-index={index}
+                alt={`Screenshot ${index + 1}`}
+                width={800}
+                height={600}
+              />
+            ))
+          }
+        </div>
+        <button class="slider__button prev" aria-label="Previous Slide"
+          >&lt;</button
+        >
+        <button class="slider__button next" aria-label="Next Slide">&gt;</button
+        >
+      </div>
+    </div>
+    <div id="lightbox" class="lightbox">
+      <img id="lightbox-image" class="lightbox-image" />
+    </div>
   </div>
 </div>
 
 <style>
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+  }
+  /* Lightbox styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Show the lightbox */
+.lightbox.show {
+  display: flex;
+}
+
+/* Lightbox image styles */
+.lightbox-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 10px;
+  position: relative; /* Ensure buttons are positioned relative to the image */
+}
+  .slider__images {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: transform 0.5s ease;
+  }
+
+  .slider-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .slider__button {
+  position: absolute;
+  top: 50%; /* Posicionar el botón en la mitad del contenedor */
+  transform: translateY(-50%); /* Ajustar la posición exacta al centro */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  border-radius: 50%;
+  z-index: 10; /* Asegurar que los botones estén por encima del slider */
+}
+
+.slider__button.prev {
+  left: 10px; /* Colocar el botón de 'prev' en el lado izquierdo */
+}
+
+.slider__button.next {
+  right: 10px; /* Colocar el botón de 'next' en el lado derecho */
+}
+
+
   .project__container {
     padding: 60px;
     display: flex;
@@ -81,10 +169,6 @@ const projectsList: any = t("projectsList");
     justify-content: center;
     align-items: center;
   }
-  .splide__slide img {
-  width: 100%;
-  height: 100%;
-}
   .project__timestamp {
     color: #6b6b6b;
     border-radius: 15px;
@@ -107,6 +191,7 @@ const projectsList: any = t("projectsList");
     padding: 20px;
     height: 100%;
     flex: 1 1 0;
+    border-radius: 40px;
     display: flex;
     flex-wrap: wrap;
   }
@@ -123,17 +208,16 @@ const projectsList: any = t("projectsList");
     height: 40px;
   }
   .project__pictures__container {
+    /* add a white box shadow to the image */
+    outline: 3px solid #5e5e5e;
+    border-radius: 20px;
+    position: relative;
     flex: 1 1 700px;
+    z-index: 1;
     display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
-  }
-  .project__pictures__container img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 40px;
   }
   .project__subtitle {
     color: var(--subtitles);
@@ -169,16 +253,8 @@ const projectsList: any = t("projectsList");
     background-color: #1d1d1d;
     border-radius: 10px;
   }
-  .project__description::-webkit-scrollbar-thumb:hover {
-    background-color: #1d1d1d;
-  }
-  .project__description::-webkit-scrollbar-thumb:active {
-    background-color: #1d1d1d;
-  }
-  .project__description::-webkit-scrollbar-track:hover {
-    background-color: #1d1d1d;
-  }
-  .project__description::-webkit-scrollbar-track:active {
+  .project__description::-webkit-scrollbar-thumb:hover, .project__description::-webkit-scrollbar-thumb:active,
+  .project__description::-webkit-scrollbar-track:hover, .project__description::-webkit-scrollbar-track:active {
     background-color: #1d1d1d;
   }
 
@@ -263,4 +339,132 @@ const projectsList: any = t("projectsList");
 </style>
 
 <script>
+  // Obtener todas las instancias de sliders en la página
+const sliders = document.querySelectorAll('.slider-container');
+
+sliders.forEach((sliderContainer) => {
+  const sliderImages = sliderContainer.querySelector('.slider__images') as HTMLElement | null;
+  const prevButton = sliderContainer.querySelector('.slider__button.prev') as HTMLButtonElement | null;
+  const nextButton = sliderContainer.querySelector('.slider__button.next') as HTMLButtonElement | null;
+
+  let currentIndex: number = 0;
+
+  // Función para actualizar la posición del slider
+  function updateSlider(): void {
+    if (!sliderImages) return;
+
+    const slideWidth: number = sliderImages.querySelector('img')?.clientWidth || 0;
+    sliderImages.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+
+  // Evento para botón "siguiente"
+  nextButton?.addEventListener('click', () => {
+    if (!sliderImages) return;
+
+    const totalSlides: number = sliderImages.querySelectorAll('img').length;
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
+  });
+
+  // Evento para botón "anterior"
+  prevButton?.addEventListener('click', () => {
+    if (!sliderImages) return;
+
+    const totalSlides: number = sliderImages.querySelectorAll('img').length;
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  });
+
+  // Actualizar el slider al cambiar el tamaño de la ventana
+  window.addEventListener('resize', updateSlider);
+});
+</script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+  const sliderImages = document.querySelectorAll('.slider-image');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+
+  // Check if the buttons already exist
+  if (!lightbox.querySelector('.lightbox__button.prev')) {
+    const prevButton = document.createElement('button');
+    const nextButton = document.createElement('button');
+    //apply styles to lightbox__button
+    const lightboxButtonStyle = `
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 24px;
+      border-radius: 50%;
+      z-index: 10;
+    `;
+    prevButton.style.cssText = lightboxButtonStyle;
+    nextButton.style.cssText = lightboxButtonStyle;
+    //apply styles to prev button
+    prevButton.style.left = '10px';
+    //apply styles to next button
+    nextButton.style.right = '10px';
+    // Add classes and text content to buttons
+        
+    prevButton.className = 'lightbox__button prev';
+    prevButton.textContent = '<';
+    nextButton.className = 'lightbox__button next';
+    nextButton.textContent = '>';
+    
+    lightbox.appendChild(prevButton);
+    lightbox.appendChild(nextButton);
+
+    // Add event listeners to lightbox buttons
+    prevButton.addEventListener('click', showPreviousImage);
+    nextButton.addEventListener('click', showNextImage);
+  }
+
+  // Add event listeners to images
+  sliderImages.forEach((image, index) => {
+    image.addEventListener('click', () => {
+      openLightbox(index);
+    });
+  });
+
+  // Add event listener to close the lightbox
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightboxImage();
+    lightbox.classList.add('show');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('show');
+  }
+
+  function showPreviousImage() {
+    currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+    updateLightboxImage();
+  }
+
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % sliderImages.length;
+    updateLightboxImage();
+  }
+
+  function updateLightboxImage() {
+    const src = sliderImages[currentIndex].src;
+    lightboxImage.src = src;
+  }
+});
+
 </script>
