@@ -1,5 +1,3 @@
-
-
 const projectType = {
   es: {
     1: "Proyecto laboral",
@@ -26,8 +24,6 @@ export const routes = {
   },
 };
 
-
-
 export const ui = {
   en: {
     "nav.aboutMe": "About me",
@@ -38,6 +34,7 @@ export const ui = {
       "Hello! 👋 My name is Cristián, I am a Full Stack developer",
     "aboutMe.description":
       "I'm a Full Stack developer specializing in backend and with extensive knowledge in JavaScript, ReactJS, and ExpressJS. I excel in advanced programming, database management, and user experience design (UI/UX).",
+    "aboutMe.cvLink": "https://github.com/cami98735264/cami98735264/raw/refs/heads/main/Cristian%20Camilo%20Rodriguez%20Montealegre%20Full%20Stack%20CV.es.en.pdf",
     "aboutMe.contact": "Contact me",
     "aboutMe.resume": "Download CV",
     "emailContact.subject": "Hi! I'd like to talk about your services",
@@ -125,6 +122,7 @@ export const ui = {
       "Hola! 👋 Mi nombre es Cristián, soy un desarrollador Full Stack",
     "aboutMe.description":
       "Soy un desarrollador Full Stack especializado en backend y con amplios conocimientos en JavaScript, ReactJS y ExpressJS. Destaco en programación avanzada, gestión de bases de datos y diseño de experiencia de usuario (UI/UX).",
+    "aboutMe.cvLink": "https://github.com/cami98735264/cami98735264/raw/refs/heads/main/Cristian%20Camilo%20Rodriguez%20Montealegre%20Full%20Stack%20CV.pdf",
     "aboutMe.contact": "Contáctame",
     "aboutMe.resume": "Descargar CV",
     "emailContact.subject": "Hola! Me gustaría hablar sobre tus servicios",

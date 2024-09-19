@@ -7,6 +7,7 @@ import Gmail from "../icons/Gmail.astro"
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const cvLink: any = t('aboutMe.cvLink');
 ---
 
 <main>
@@ -44,8 +45,8 @@ const t = useTranslations(lang);
                 {t('aboutMe.description')}
             </span>
             <div class="aboutme__buttons">
-                <button>{t('aboutMe.resume')}</button>
-                <button>{t('aboutMe.contact')}</button>
+                <a href={cvLink} id="resume__button">{t('aboutMe.resume')}</a>
+                <a href={`https://wa.me/573186562061?text=${t('whatsappContact.text')}`}>{t('aboutMe.contact')}</a>
             </div>
             </div>
 
@@ -147,10 +148,12 @@ const t = useTranslations(lang);
         display: flex;
         gap: 10px;
     }
-    .aboutme__buttons button {
+    .aboutme__buttons a {
         padding: 15px 25px;
+        text-align: center;
         border: none;
         border-radius: 10px;
+        text-decoration: none;
         background-color: #5a0684;
         color: white;
         font-size: clamp(0.6rem, 2vw, 0.7rem);
