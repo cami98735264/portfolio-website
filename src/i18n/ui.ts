@@ -141,64 +141,64 @@ export const ui = {
         title: "Plataforma de detección y monitoreo de placas vehículares",
         description:
           "Plataforma y software de detección de placas que utiliza el algoritmo de inteligencia artificial YoloV8 para el reconocimiento de matrículas. Implementación de funcionalidades para estudiar y mapear patrones de comportamiento basados en la ubicación de los registros de matrículas dentro de la plataforma web alojada en archivos estáticos usando ExpressJS.",
-        projectType: projectType["en"][1],
+        projectType: projectType["es"][1],
         date: "06/2023",
       },
       2: {
         title: "Software de detección de placas vehículares YoloV8",
         description:
           "Desarrollo de software de reconocimiento de matrículas utilizando el algoritmo de inteligencia artificial YoloV8.",
-        projectType: projectType["en"][1],
+        projectType: projectType["es"][1],
         date: "04/2023",
       },
       3: {
         title: "Plataforma deportiva para gestión de torneos",
         description:
           "Desarrollo de una plataforma full-stack con gestión de roles, enrutamiento y autenticación en ReactJS y ExpressJS para gestionar cada fase de los torneos deportivos, utilizando validaciones avanzadas y dinámicas con la librería express-validator.",
-        projectType: projectType["en"][1],
+        projectType: projectType["es"][1],
         date: "06/2024",
       },
       4: {
         title:
           "Traductor de lenguaje natural a lenguaje de señas (intérprete virtual)",
         description:
-          "Desarrollo de una API en ExpressJS para interpretar el lenguaje de señas colombiano basado en inteligencia artificial utilizando GPT-4 y la API de OpenAI. · Implementación de un sistema para traducir texto en lenguaje natural a lenguaje de señas colombiano, mostrado por un intérprete en pantalla verde dentro de una plataforma web construida en NextJS. · Desarrollo y optimización de algoritmos para el procesamiento de lenguaje natural y el reconocimiento de señas para garantizar una traducción precisa y fluida.",
-        projectType: projectType["en"][1],
+          "Desarrollo de una API en ExpressJS para interpretar el lenguaje de señas colombiano basado en inteligencia artificial utilizando GPT-4 y la API de OpenAI. Implementación de un sistema para traducir texto en lenguaje natural a lenguaje de señas colombiano, mostrado por un intérprete en pantalla verde dentro de una plataforma web construida en NextJS. Desarrollo y optimización de algoritmos para el procesamiento de lenguaje natural y el reconocimiento de señas para garantizar una traducción precisa y fluida.",
+        projectType: projectType["es"][1],
         date: "09/2023",
       },
       5: {
         title: "Sistema de seguimiento de egresados",
         description:
           "Este software permite a los egresados enviar su educación y trabajos después de la graduación para que la universidad pueda hacer seguimiento de estadísticas. Desarrollé las vistas de la aplicación en ReactJS, incluyendo tanto la página de inicio como el sistema de dashboard. Diseñé el UI/UX utilizando la librería de componentes DaisyUI para garantizar consistencia visual en todo el producto. En el backend, utilizando ExpressJS, incluí sistemas de autenticación segura y gestión de sesiones. Adicionalmente, integré una API pública externa de datos (universidades del país) para capturar dinámicamente la respuesta del usuario desde los inputs.",
-        projectType: projectType["en"][2],
+        projectType: projectType["es"][2],
         date: "02/2024",
       },
       6: {
         title: "Sistema veterinario",
         description:
           "Diseñé y desarrollé el módulo de registro y login, incluyendo la creación del UI/UX de la aplicación. Implementé un sistema CRUD para gestionar las citas de mascotas, integrando datos dinámicos de la base de datos como el tipo de animal y el tipo de consulta (cirugía, revisión, accidente, etc.). El sistema se configuró para incluir precios de consulta y mostrar datos relevantes en pantalla. Se integraron funcionalidades avanzadas para mejorar la gestión y presentación de información crucial para la práctica veterinaria.",
-        projectType: projectType["en"][2],
+        projectType: projectType["es"][2],
         date: "03/2024",
       },
       7: {
         title: "Autenticación avanzada para una plataforma de sensores",
         description:
           "Durante el desarrollo del sistema de sensores, creé un sistema de login y registro completo utilizando ExpressJS y autenticación por email. Esto incluyó la implementación de la funcionalidad para enviar códigos de login por email utilizando credenciales temporales de aplicaciones de Google y la librería Nodemailer. En el frontend, construido con ReactJS y DaisyUI, estos códigos de login dinámicos se enviaron a los usuarios por email e integraron sin problemas en el formulario de login, garantizando un proceso de autenticación fluido y seguro.",
-        projectType: projectType["en"][2],
+        projectType: projectType["es"][2],
         date: "05/2024",
       },
       8: {
         title: "Portafolio personal V.1",
         description:
           "Diseñé y desarrollé esta primera versión de mi portafolio utilizando Astro, un generador de sitios estáticos. Creé el diseño UI/UX e implementé las funcionalidades para mostrar mis proyectos, habilidades y experiencia. Incluí un formulario de contacto con opciones de email y WhatsApp para facilitar la comunicación con potenciales clientes. El sitio fue optimizado para SEO y rendimiento, logrando un score de Lighthouse de 100 en todas las categorías.",
-        projectType: projectType["en"][2],
+        projectType: projectType["es"][2],
         date: "06/2024",
       },
       9: {
         title: "Portafolio personal V.2",
         description:
           "Diseñé y desarrollé esta segunda versión también utilizando Astro, mejoré el diseño UI/UX y añadí nuevas funcionalidades y un mejor sistema de gestión de idiomas. Incluí un modo oscuro y un selector de idiomas para mejorar la experiencia de usuario. Optimicé el sitio para SEO y rendimiento, logrando un score de Lighthouse de 100 en todas las categorías.",
-        projectType: projectType["en"][2],
+        projectType: projectType["es"][2],
         date: "08/2024",
       },
     },

@@ -34,7 +34,7 @@ const projectsList: any = t("projectsList");
           </span>
         </div>
         <h2 class="project__title">{projectsList[projectId].title}</h2>
-
+        
         <div class="project__subtitle">
           {projectsList[projectId].projectType}
         </div>
@@ -61,6 +61,7 @@ const projectsList: any = t("projectsList");
     </div>
     <div class="project__pictures__container slider-container">
       <div class="slider">
+        
         <div class="slider__images">
           {
             projectsScreenshots[projectId].screenshots.map((screenshot: string, index: number) => (
@@ -168,9 +169,8 @@ const projectsList: any = t("projectsList");
   .project__container {
     padding: 60px;
     display: flex;
-    height: calc(100dvh - 100px);
+    min-height: calc(100dvh - 100px);
     max-width: 2118px;
-    max-height: 800px;
     /* apply more responsive design min-height and min-width */
     justify-content: center;
     align-items: center;
@@ -182,7 +182,7 @@ const projectsList: any = t("projectsList");
     justify-content: flex-end;
   }
   .project__header {
-    gap: 20px;
+    gap: 12px;
     display: flex;
     flex-direction: column;
   }
@@ -195,7 +195,6 @@ const projectsList: any = t("projectsList");
   .project {
     gap: 36px;
     padding: 20px;
-    height: 100%;
     flex: 1 1 0;
     display: flex;
     flex-wrap: wrap;
@@ -208,7 +207,7 @@ const projectsList: any = t("projectsList");
     flex: 1 1 600px;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    gap: 36px;
   }
   .links__icons * {
     width: 40px;
@@ -305,7 +304,7 @@ const projectsList: any = t("projectsList");
   .links__text {
     padding-left: 15px;
   }
-  @media (width < 1490px) {
+  @media (width < 1100px) {
     
     .project__container {
       max-height: 100%;
