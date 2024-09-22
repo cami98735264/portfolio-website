@@ -46,6 +46,11 @@ export const ui = {
     "layout.skillsTitle": "Skills",
     "layout.experienceTitle": "Experience",
     "layout.title": "Cristián Dev - Full Stack Developer",
+    "skills.programmingLanguagesTitle": "Programming languages & web design languages",
+    "skills.frameworksTitle": "Technologies and frameworks",
+    "skills.databasesTitle": "Databases",
+    "skills.toolsTitle": "Tools",
+    "skills.hostingServicesTitle": "Hosting services",
     projectsList: {
       1: {
         title: "License plate tracking and monitoring platform",
@@ -134,6 +139,11 @@ export const ui = {
     "layout.skillsTitle": "Habilidades",
     "layout.experienceTitle": "Experiencia",
     "layout.title": "Cristián Dev - Desarrollador Full Stack",
+    "skills.programmingLanguagesTitle": "Lenguajes de programación y lenguajes de diseño web",
+    "skills.frameworksTitle": "Tecnologías y frameworks",
+    "skills.databasesTitle": "Bases de datos",
+    "skills.toolsTitle": "Herramientas",
+    "skills.hostingServicesTitle": "Servicios de hosting",
     projectsList: {
       1: {
         title: "Plataforma de detección y monitoreo de placas vehículares",

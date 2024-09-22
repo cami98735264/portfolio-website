@@ -1,0 +1,190 @@
+---
+import SkillCard from "../components/SkillCard.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const programmingLanguagesTitle: any = t('skills.programmingLanguagesTitle');
+const technologiesTitle: any = t('skills.frameworksTitle');
+const databasesTitle: any = t('skills.databasesTitle');
+const skillsTitle: any = t('layout.skillsTitle');
+const toolsTitle: any = t('skills.toolsTitle');
+const hostingServicesTitle: any = t('skills.hostingServicesTitle');
+
+---
+
+<section class="skills__container">
+    <h1 class="skills__title">{skillsTitle}</h1>
+    <SkillCard title={programmingLanguagesTitle} technologies={[
+        {
+            titleName: "JavaScript",
+            name: "javascript",
+            backgroundColor: "#f7df1e",
+            percentage: 90
+        },
+        {
+            titleName: "TypeScript",
+            name: "typescript",
+            backgroundColor: "#007acc",
+            percentage: 80
+        },
+        {
+            titleName: "Python",
+            name: "python",
+            backgroundColor: "#3776ab",
+            percentage: 70
+        },
+        {
+            titleName: "HTML",
+            name: "html5",
+            backgroundColor: "#e34f26",
+            percentage: 90
+        },
+        {
+            titleName: "CSS",
+            name: "css3",
+            backgroundColor: "#1572b6",
+            percentage: 90
+        }
+    ]} />
+    <SkillCard title={technologiesTitle} technologies={[
+        {
+            titleName: "React",
+            name: "react",
+            backgroundColor: "#61dafb",
+            percentage: 90
+        },
+        {
+            titleName: "Next.js",
+            name: "nextdotjs",
+            backgroundColor: "#fff",
+            percentage: 80
+        },
+        {
+            titleName: "Node.js",
+            name: "nodedotjs",
+            backgroundColor: "#68a063",
+            percentage: 70
+        },
+        {
+            titleName: "Express",
+            name: "express",
+            backgroundColor: "#000",
+            percentage: 80
+        },
+        {
+            titleName: "Astro",
+            name: "astro",
+            backgroundColor: "#000",
+            percentage: 70  
+        }
+        ]}/>
+        <SkillCard title={databasesTitle} technologies={[
+            {
+                titleName: "MongoDB",
+                name: "mongodb",
+                backgroundColor: "#4DB33D",
+                percentage: 90
+            },
+            {
+                titleName: "MySQL",
+                name: "mysql",
+                backgroundColor: "#00758F",
+                percentage: 80
+            },
+            {
+                titleName: "PostgreSQL",
+                name: "postgresql",
+                backgroundColor: "#336791",
+                percentage: 70
+            },
+            {
+                titleName: "Firebase",
+                name: "firebase",
+                backgroundColor: "#FFCA28",
+                percentage: 70
+            },
+        ]}/>
+        <SkillCard title={toolsTitle} technologies={[
+            {
+                titleName: "Git",
+                name: "git",
+                backgroundColor: "#f34f29",
+                percentage: 90
+            },
+            {
+                titleName: "GitHub",
+                name: "github",
+                backgroundColor: "#dbdbdb",
+                percentage: 70
+            },
+            {
+                titleName: "VSCode",
+                name: "visualstudiocode",
+                backgroundColor: "#007acc",
+                percentage: 90
+            },
+            {
+                titleName: "GitHub Copilot",
+                name: "githubcopilot",
+                backgroundColor: "#dbdbdb",
+                percentage: 100
+            },
+            {
+                titleName: "Penpot",
+                name: "penpot",
+                backgroundColor: "#dbdbdb",
+                percentage: 90
+
+            },
+            {
+                titleName: "Postman",
+                name: "postman",
+                backgroundColor: "#ff6c37",
+                percentage: 90
+
+            }
+        ]}/>
+        <SkillCard title={hostingServicesTitle} technologies={[
+            {
+                titleName: "Vercel",
+                name: "vercel",
+                backgroundColor: "#000",
+                percentage: 90
+            },
+            {
+                titleName: "Netlify",
+                name: "netlify",
+                backgroundColor: "#38afbb",
+                percentage: 90
+            },
+            {
+                titleName: "Heroku",
+                name: "heroku",
+                backgroundColor: "#430098",
+                percentage: 70
+            },
+            {
+                titleName: "Firebase",
+                name: "firebase",
+                backgroundColor: "#FFCA28",
+                percentage: 70
+            }
+        ]}/>
+</section>
+
+
+<style>
+.skills__title {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--titles);
+    font-weight: 500;
+}
+.skills__container {
+    padding: 20px;
+    flex-direction: column;
+    gap: 60px;
+    max-width: 2000px;
+    display: flex;
+    margin-bottom: 100px;
+}
+</style>

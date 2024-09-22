@@ -1,0 +1,101 @@
+---
+interface Props {
+    title: string;
+    technologies: {
+        titleName: string;
+        name: string;
+        backgroundColor: string;
+        percentage: number;
+    }[];
+}
+const { title, technologies } = Astro.props;
+import { Icon } from 'astro-icon/components';
+---
+<div class="skillcard__container">
+    <h2 class="skillcard__title">{title}</h2>
+    <div class="skillcard__technologies">
+        {technologies.map((technology) => (
+            <span class="skillcard__technology__container">
+                <h3 class="skillcard__technology__title">{technology.titleName}</h3>
+                <span class="skillcard__technology">
+                <Icon name={`simple-icons:${technology.name}`} color={technology.backgroundColor} />
+                </span>
+                <span class="skillcard__percentage__container">
+                    <span class="skillcard__percentage" style={`width: ${technology.percentage}%; background-color: ${technology.backgroundColor};`}></span><h3 class="skillcard__percentage__text">{technology.percentage}%</h3>
+                </span>
+            </span>
+        ))}
+    </div>
+</div>
+
+<style>
+    [data-icon] {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .skillcard__percentage__container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .skillcard__technology__container {
+        display: flex;
+        flex: 1 1 0;
+        padding: 20px 0;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .skillcard__percentage {
+        height: 10px;
+        border-radius: 10px;
+    }
+
+    .skillcard__technologies {
+        padding: 12px 24px;
+        background-color: rgba(255, 255, 255, 0.014);
+        display: flex;
+        gap: 20px;
+        border-radius: 10px;
+        flex-wrap: wrap;
+
+    }
+    .skillcard__technology {
+        display: flex;
+        padding: 60px;
+        background-color: rgba(255, 255, 255, 0.073);
+        justify-content: center;
+        border-radius: 10px;
+        align-items: center;
+    }
+    .skillcard__percentage__text {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        color: var(--description);
+    }
+    .skillcard__container {
+        animation-fill-mode: both;
+        animation-range: entry 25% cover 50%;
+        view-timeline-name: --skill;
+        view-timeline-axis: block;
+        animation-timeline: --skill;
+        animation-name: show;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        border-radius: 10px;
+    }
+    .skillcard__technology__title {
+        /* small */
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        color: var(--description);
+        font-weight: 400;
+    }
+    .skillcard__title {
+        /* make it a bit smaller */
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        color: var(--titles);
+        font-weight: 400;
+    }
+</style>

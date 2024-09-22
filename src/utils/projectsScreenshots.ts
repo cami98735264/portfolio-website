@@ -7,6 +7,8 @@ const veterinaria_crud = "/assets/projects_screenshots/veterinaria_crud";
 const virtual_interpreter = "/assets/projects_screenshots/virtual_interpreter";
 const sports_platform = "/assets/projects_screenshots/sports_plataforma";
 
+
+
 export const projectsRoutes = {
     1: {
       screenshots: [
@@ -19,6 +21,8 @@ export const projectsRoutes = {
         `${placasDeteccionSoftware}/Screenshot_7.jpg`,
         `${placasDeteccionSoftware}/Screenshot_8.jpg`,
       ],
+      backendUrl: "https://github.com/cami98735264/placas-carro",
+      frontendUrl: "https://github.com/cami98735264/placas-carro"
     },
     2: {
       screenshots: [
@@ -36,6 +40,8 @@ export const projectsRoutes = {
         `${placasPlataforma}/Screenshot_12.png`,
         `${placasPlataforma}/Screenshot_13.jpg`,
       ],
+      backendUrl: "https://github.com/cami98735264/graphical-interface-monitoreo-placas",
+      frontendUrl: "https://github.com/cami98735264/graphical-interface-monitoreo-placas"
     },
     3: {
       screenshots: [
@@ -61,9 +67,13 @@ export const projectsRoutes = {
         `${sports_platform}/Screenshot_20.png`,
         `${sports_platform}/Screenshot_21.png`,
       ],
+      backendUrl: "https://github.com/cami98735264",
+      frontendUrl: "https://github.com/cami98735264"
     },
     4: {
       screenshots: [`${virtual_interpreter}/maingif.gif`],
+      frontendUrl: "https://github.com/cami98735264/nextjs-lenguaje-de-senas",
+      backendUrl: "https://github.com/cami98735264/nextjs-lenguaje-de-senas"
     },
     5: {
       screenshots: [
@@ -84,6 +94,8 @@ export const projectsRoutes = {
         `${sanIsidoroEgresados}/Screenshot_15.png`,
         `${sanIsidoroEgresados}/Screenshot_16.png`,
       ],
+      frontendUrl: "https://github.com/cami98735264/egresados-iesi",
+      backendUrl: "https://github.com/cami98735264/egresados-sanisidoro-backend"
     },
     6: {
       screenshots: [
@@ -101,6 +113,8 @@ export const projectsRoutes = {
         `${veterinaria_crud}/Screenshot_12.png`,
         `${veterinaria_crud}/Screenshot_13.png`,
       ],
+      frontendUrl: "https://github.com/cami98735264/veterinaria-crud-sessions",
+      backendUrl: "https://github.com/cami98735264/veterinaria-crud-sessions-backend"
     },
     7: {
       screenshots: [
@@ -115,5 +129,7 @@ export const projectsRoutes = {
         `${sensors_plataforma}/Screenshot_9.png`,
         `${sensors_plataforma}/Screenshot_10.png`,
       ],
+      frontendUrl: "https://github.com/cami98735264/sensores-auth-system-router",
+      backendUrl: "https://github.com/cami98735264/sensores-auth-system-router-backend"
     }
   };
