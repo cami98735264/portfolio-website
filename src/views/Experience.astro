@@ -1,0 +1,44 @@
+---
+interface Experience {
+    experienceTitle: string;
+    companyName: string;
+    datesRange: [string, string];
+    experienceDescription: string;
+    experienceAchievements: string[];
+}
+import ExperienceCard from "../components/ExperienceCard.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const title: any = t('experience.title');
+const experienceList: any = t('experienceList');
+---
+
+<section class="experience__container">
+    <h1 class="experience__title">{title}</h1>
+    <div class="experiencecards__container">
+        {experienceList.map((experience: Experience) => {
+            return <ExperienceCard jobTitle={experience.experienceTitle} companyName={experience.companyName} datesRange={experience.datesRange} jobDescription={experience.experienceDescription} jobAchievements={experience.experienceAchievements} />
+    })}
+    </div>
+</section>
+
+
+<style>
+    .experience__container {
+        display: flex;
+        padding: 20px;
+        flex-direction: column;
+        gap: 40px;
+    }
+    .experiencecards__container {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+    }
+    .experience__title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-weight: 500;
+        color: var(--titles);
+    }
+</style>

@@ -1,0 +1,80 @@
+---
+interface Props {
+  jobTitle: string;
+  companyName: string;
+  jobDescription: string;
+  jobAchievements: string[];
+  datesRange: [string, string];
+}
+
+const { jobTitle, companyName, jobDescription, datesRange, jobAchievements } = Astro.props;
+---
+
+<div class="experiencecard__container">
+  <div class="experiencecard__header">
+    <h2 class="experiencecard__jobtitle">{companyName}, {jobTitle}</h2>
+    <p class="experiencecard__datesrange">{datesRange[0]} - {datesRange[1]}</p>
+  </div>
+  <div class="experiencecard__body">
+    <p class="experiencecard__jobdescription">{jobDescription}</p>
+    <ul class="experiencecard__jobachievements">
+        {jobAchievements.map((achievement) => (
+            <li>{achievement}</li>
+        ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+    .experiencecard__container {
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.014);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .experiencecard__body {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        max-height: 250px;
+        overflow: auto;
+    }
+    .experiencecard__body::-webkit-scrollbar {
+        width: 5px;
+    }
+    .experiencecard__body::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.014);
+        border-radius: 10px;
+    }
+    .experiencecard__body::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0.014);
+    }
+
+    .experiencecard__header {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .experiencecard__jobtitle {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        color: var(--titles);
+        font-weight: 400;
+    }
+    .experiencecard__datesrange {
+        /* make it smaller */
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        color: var(--subtitles);
+        font-weight: 400;
+    }
+    .experiencecard__jobdescription, .experiencecard__jobachievements {
+        font-size: clamp(0.9rem, 2vw, 1.2rem);
+        color: var(--description);
+        font-weight: 400;
+    }
+    .experiencecard__jobachievements li {
+        line-height: 1.3;
+        list-style: inside;
+    }
+</style>

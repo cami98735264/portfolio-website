@@ -34,7 +34,8 @@ export const ui = {
       "Hello! 👋 My name is Cristián, I am a Full Stack developer",
     "aboutMe.description":
       "I'm a Full Stack developer specializing in backend and with extensive knowledge in JavaScript, ReactJS, and ExpressJS. I excel in advanced programming, database management, and user experience design (UI/UX).",
-    "aboutMe.cvLink": "https://github.com/cami98735264/cami98735264/raw/refs/heads/main/Cristian%20Camilo%20Rodriguez%20Montealegre%20Full%20Stack%20CV.es.en.pdf",
+    "aboutMe.cvLink":
+      "https://github.com/cami98735264/cami98735264/raw/refs/heads/main/Cristian%20Camilo%20Rodriguez%20Montealegre%20Full%20Stack%20CV.es.en.pdf",
     "aboutMe.contact": "Contact me",
     "aboutMe.resume": "Download CV",
     "emailContact.subject": "Hi! I'd like to talk about your services",
@@ -46,11 +47,13 @@ export const ui = {
     "layout.skillsTitle": "Skills",
     "layout.experienceTitle": "Experience",
     "layout.title": "Cristián Dev - Full Stack Developer",
-    "skills.programmingLanguagesTitle": "Programming languages & web design languages",
+    "skills.programmingLanguagesTitle":
+      "Programming languages & web design languages",
     "skills.frameworksTitle": "Technologies and frameworks",
     "skills.databasesTitle": "Databases",
     "skills.toolsTitle": "Tools",
     "skills.hostingServicesTitle": "Hosting services",
+    "experience.title": "Work/personal experience",
     projectsList: {
       1: {
         title: "License plate tracking and monitoring platform",
@@ -117,6 +120,44 @@ export const ui = {
         date: "08/2024",
       },
     },
+    experienceList: [
+      {
+        experienceTitle: "FULL STACK DEVELOPER",
+        companyName: "PayBluem",
+        datesRange: ["May 2024", "Present"],
+        experienceDescription:
+          "A sports platform developed in ReactJS and ExpressJS, offering a comprehensive solution for sports tournament management.",
+        experienceAchievements: [
+          "Development of a full-stack platform with role management, routing, and authentication in ReactJS and ExpressJS to manage sports tournament phases.",
+          "Design of the registration and payment flow for tournaments, allowing team leaders to register and organizers to manage team participation.",
+          "Development of modules for creating and managing group and direct phases, including assigning roles to referees and athletes associated with team leaders.",
+          "Implementation of dynamic tournament key diagrams to visualize phases and match results.",
+        ],
+      },
+      {
+        experienceTitle: "FULL STACK DEVELOPER",
+        companyName: "PayBluem",
+        datesRange: ["Jan 2024", "Apr 2024"],
+        experienceDescription:
+          "Platform and license plate detection software that uses artificial intelligence for license plate recognition.",
+        experienceAchievements: [
+          "Development of license plate recognition software using the YoloV8 artificial intelligence algorithm.",
+          "Implementation of functionalities to study and map behavior patterns based on the location of license plate records within the web platform hosted in static files using ExpressJS.",
+        ],
+      },
+      {
+        experienceTitle: "FULL STACK DEVELOPER",
+        companyName: "PayBluem",
+        datesRange: ["Jul 2023", "Dec 2023"],
+        experienceDescription:
+          "Colombian sign language interpretation platform using artificial intelligence with GPT-4 and the OpenAI API.",
+        experienceAchievements: [
+          "Development of an API in ExpressJS to interpret Colombian sign language based on artificial intelligence using GPT-4 and the OpenAI API.",
+          "Implementation of a system to translate text in natural language to Colombian sign language, displayed by an interpreter on a green screen within a web platform built in NextJS.",
+          "Development and optimization of algorithms for natural language processing and sign recognition to ensure accurate and fluid translation.",
+        ],
+      },
+    ],
   },
   es: {
     "nav.aboutMe": "Sobre mi",
@@ -127,7 +168,8 @@ export const ui = {
       "Hola! 👋 Mi nombre es Cristián, soy un desarrollador Full Stack",
     "aboutMe.description":
       "Soy un desarrollador Full Stack especializado en backend y con amplios conocimientos en JavaScript, ReactJS y ExpressJS. Destaco en programación avanzada, gestión de bases de datos y diseño de experiencia de usuario (UI/UX).",
-    "aboutMe.cvLink": "https://github.com/cami98735264/cami98735264/raw/refs/heads/main/Cristian%20Camilo%20Rodriguez%20Montealegre%20Full%20Stack%20CV.pdf",
+    "aboutMe.cvLink":
+      "https://github.com/cami98735264/cami98735264/raw/refs/heads/main/Cristian%20Camilo%20Rodriguez%20Montealegre%20Full%20Stack%20CV.pdf",
     "aboutMe.contact": "Contáctame",
     "aboutMe.resume": "Descargar CV",
     "emailContact.subject": "Hola! Me gustaría hablar sobre tus servicios",
@@ -139,11 +181,13 @@ export const ui = {
     "layout.skillsTitle": "Habilidades",
     "layout.experienceTitle": "Experiencia",
     "layout.title": "Cristián Dev - Desarrollador Full Stack",
-    "skills.programmingLanguagesTitle": "Lenguajes de programación y lenguajes de diseño web",
+    "skills.programmingLanguagesTitle":
+      "Lenguajes de programación y lenguajes de diseño web",
     "skills.frameworksTitle": "Tecnologías y frameworks",
     "skills.databasesTitle": "Bases de datos",
     "skills.toolsTitle": "Herramientas",
     "skills.hostingServicesTitle": "Servicios de hosting",
+    "experience.title": "Experiencia laboral/personal",
     projectsList: {
       1: {
         title: "Plataforma de detección y monitoreo de placas vehículares",
@@ -210,5 +254,43 @@ export const ui = {
         date: "08/2024",
       },
     },
+    experienceList: [
+      {
+        experienceTitle: "DESARROLLADOR FULL STACK",
+        companyName: "PayBluem",
+        datesRange: ["May 2024", "Presente"],
+        experienceDescription:
+          "Una plataforma deportiva desarrollada en ReactJS y ExpressJS, que ofrece una solución integral para la gestión de torneos deportivos.",
+        experienceAchievements: [
+          "Desarrollo de una plataforma full-stack con gestión de roles, enrutamiento y autenticación en ReactJS y ExpressJS para gestionar fases de torneos deportivos.",
+          "Diseño del flujo de registro y pago para torneos, permitiendo a los líderes de equipo registrarse y a los organizadores gestionar la participación de los equipos.",
+          "Desarrollo de módulos para la creación y gestión de fases de grupos y fases directas, incluyendo la asignación de roles a árbitros y atletas asociados con los líderes de equipo.",
+          "Implementación de diagramas dinámicos de llaves de torneo para visualizar las fases y los resultados de los partidos.",
+        ],
+      },
+      {
+        experienceTitle: "DESARROLLADOR FULL STACK",
+        companyName: "PayBluem",
+        datesRange: ["Ene 2024", "Abr 2024"],
+        experienceDescription:
+          "Plataforma y software de detección de matrículas que utiliza inteligencia artificial para el reconocimiento de placas.",
+        experienceAchievements: [
+          "Desarrollo de software de reconocimiento de matrículas utilizando el algoritmo de inteligencia artificial YoloV8.",
+          "Implementación de funcionalidades para estudiar y mapear patrones de comportamiento basados en la ubicación de los registros de matrículas dentro de la plataforma web alojada en archivos estáticos usando ExpressJS.",
+        ],
+      },
+      {
+        experienceTitle: "DESARROLLADOR FULL STACK",
+        companyName: "PayBluem",
+        datesRange: ["Jul 2023", "Dic 2023"],
+        experienceDescription:
+          "Plataforma de interpretación de lenguaje de señas colombiano que utiliza inteligencia artificial con GPT-4 y la API de OpenAI.",
+        experienceAchievements: [
+          "Desarrollo de una API en ExpressJS para interpretar el lenguaje de señas colombiano basada en inteligencia artificial utilizando GPT-4 y la API de OpenAI.",
+          "Implementación de un sistema para traducir texto en lenguaje natural al lenguaje de señas colombiano, mostrado por un intérprete en una pantalla verde dentro de una plataforma web construida en NextJS.",
+          "Desarrollo y optimización de algoritmos para el procesamiento de lenguaje natural y el reconocimiento de señas para asegurar una traducción precisa y fluida.",
+        ],
+      },
+    ],
   },
 } as const;
