@@ -116,7 +116,7 @@ npm run deploy
 ## 🔧 Configuration
 
 The project is configured in `astro.config.mjs`:
-- Site URL: https://cami98735264.github.io/
+- Site URL: https://cami98735264.netlify.app/
 - Server-side rendering enabled
 - Netlify adapter for deployment
 - Astro Icon integration for icon management
